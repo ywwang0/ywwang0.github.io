@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="何谓 “机器学习”，学界尚未有统一的定义。但有两个定义特别值得了解：一个来自卡内基梅隆大学的Tom Mitchell教授，一个来自Goodfellow、Bengio 和 Courville合著的经典“花书”《深度学习》。 Tom Mitchell：根据优化过程抽象定义机器学习  对于某类任务 T 和性能度量 P，如果一个计算机程序在 T 上以 P 衡量的性能随着经验 E 而自我完善，那么我们称">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习入门">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="计算材料学">
+<meta property="og:description" content="何谓 “机器学习”，学界尚未有统一的定义。但有两个定义特别值得了解：一个来自卡内基梅隆大学的Tom Mitchell教授，一个来自Goodfellow、Bengio 和 Courville合著的经典“花书”《深度学习》。 Tom Mitchell：根据优化过程抽象定义机器学习  对于某类任务 T 和性能度量 P，如果一个计算机程序在 T 上以 P 衡量的性能随着经验 E 而自我完善，那么我们称">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-7c4c6b36873da4a0dbb82fe8d55e5b11_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-5093c94b1556bbf112cce21f08da2cc3_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-b75d8bf0968ae00525e803e452c4e042_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-818dea0b2a5db0d06b4d09c4c35e4add_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-fb5fe42fac7ae7a423c438640de92cff_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-f54021ee5f3458d96bfdbfd633020194_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-6ab79925833165f9076bde770beb081e_1440w.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-fafdf6f5525015e99a976f66eb64fb06_1440w.jpg">
+<meta property="article:published_time" content="2020-03-22T09:50:29.000Z">
+<meta property="article:modified_time" content="2020-03-31T12:52:12.729Z">
+<meta property="article:author" content="Yaowei Wang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/Users/wangyaowei/Documents/Blog/blog/source/images/v2-7c4c6b36873da4a0dbb82fe8d55e5b11_1440w.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>机器学习入门 | 计算材料学</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">计算材料学</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习入门
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 17:50:29" itemprop="dateCreated datePublished" datetime="2020-03-22T17:50:29+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-31 20:52:12" itemprop="dateModified" datetime="2020-03-31T20:52:12+08:00">2020-03-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+
+<p>何谓 “机器学习”，学界尚未有统一的定义。但有两个定义特别值得了解：一个来自卡内基梅隆大学的Tom Mitchell教授，一个来自Goodfellow、Bengio 和 Courville合著的经典“花书”《深度学习》。</p>
+<p><strong>Tom Mitchell：根据优化过程抽象定义机器学习</strong></p>
+<blockquote>
+<p>对于某类任务 T 和性能度量 P，如果一个计算机程序在 T 上以 P 衡量的性能随着经验 E 而自我完善，那么我们称这个计算机程序在从经验 E 中学习。</p>
+</blockquote>
+<h3 id="机器学习的分类"><a href="#机器学习的分类" class="headerlink" title="机器学习的分类"></a>机器学习的分类</h3><ul>
+<li><strong>监督学习(Supervised Algorithms）:</strong>对训练有标签的数据有用，但是对于其他没有标签的数据，则需要预估</li>
+<li><strong>无监督学习(Unsupervised Algorithms）:</strong>用于对无标签的数据集（数据没有预处理）的处理，需要发掘其内在关系的时候</li>
+<li><strong>强化学习(Reinforcement Algorithms):</strong>介于两者之间，虽然没有精准的标签或者错误信息，但是对于每个可预测的步骤或者行为，会有某种形式的反馈。</li>
+<li><strong>半监督学习:</strong></li>
+<li><strong>深度学习(Deep Learning):</strong></li>
+</ul>
+<h3 id="基本的机器学习算法"><a href="#基本的机器学习算法" class="headerlink" title="基本的机器学习算法"></a>基本的机器学习算法</h3><ul>
+<li>线性回归算法 Linear Regression</li>
+<li>支持向量机算法 (Support Vector Machine,SVM)</li>
+<li>最近邻居/k-近邻算法 (K-Nearest Neighbors,KNN)</li>
+<li>逻辑回归算法 Logistic Regression</li>
+<li>决策树算法 Decision Tree</li>
+<li>k-平均算法 K-Means</li>
+<li>随机森林算法 Random Forest</li>
+<li>朴素贝叶斯算法 Naive Bayes</li>
+<li>降维算法 Dimensional Reduction</li>
+<li>梯度增强算法 Gradient Boosting</li>
+</ul>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>1) <strong>决策树 (Decision Trees)</strong></p>
+<p>决策树是一个决策支持工具，它用树形的图或者模型表示决策及其可能的后果，包括随机事件的影响、资源消耗、以及用途。请看下图，随意感受一下决策树长这样的：</p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-7c4c6b36873da4a0dbb82fe8d55e5b11_1440w.jpg" alt="v2-7c4c6b36873da4a0dbb82fe8d55e5b11_1440w"></p>
+<p>从商业角度看，决策树就是用最少的 Yes/No 问题，尽可能地做出一个正确的决策。它让我们通过一种结构化、系统化的方式解决问题，得到一个有逻辑的结论。</p>
+<p>2) <strong>朴素贝叶斯分类 (Naive Bayes Classification)</strong></p>
+<p>朴素贝叶斯分类器是一类简单概率分类器，它基于把贝叶斯定理运用在特征之间关系的强独立性假设上。下图是贝叶斯公式 ——P (A|B) 表示后验概率，P (B|A) 表示似然度，P (A) 表示类别的先验概率 (class prior probability)，P (B) 表示做出预测的先验概率 (predictor prior probability)。</p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-5093c94b1556bbf112cce21f08da2cc3_1440w.jpg" alt="v2-5093c94b1556bbf112cce21f08da2cc3_1440w"></p>
+<p>现实生活中的应用例子：</p>
+<ul>
+<li>一封电子邮件是否是垃圾邮件</li>
+<li>一篇文章应该分到科技、政治，还是体育类</li>
+<li>一段文字表达的是积极的情绪还是消极的情绪？</li>
+<li>人脸识别</li>
+</ul>
+<p>3) <strong>普通最小二乘回归 (Ordinary Least Squares Regression)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-b75d8bf0968ae00525e803e452c4e042_1440w.jpg" alt="v2-b75d8bf0968ae00525e803e452c4e042_1440w"></p>
+<p>如果你学过统计学，你可能听过线性回归。至少最小二乘是一种进行线性回归的方法。你可以认为线性回归就是让一条直线用最适合的姿势穿过一组点。有很多方法可以这样做，普通最小二乘法就像这样 —— 你可以画一条线，测量每个点到这条线的距离，然后加起来。最好的线应该是所有距离加起来最小的那根。</p>
+<p>线性法表示建模线性模型，而最小二乘法可以最小化该线性模型的误差。</p>
+<p>4) <strong>逻辑回归 (Logistic Regression)</strong></p>
+<p>逻辑回归是一种非常强大的统计方法，可以把有一个或者多个解释变量的数据，建立为二项式类型的模型，通过用累积逻辑分布的逻辑函数估计概率，测量分类因变量和一个或多个独立变量之间的关系。 </p>
+<p>通常，回归在现实生活中的用途如下：</p>
+<ul>
+<li>信用评估</li>
+<li>测量市场营销的成功度</li>
+<li>预测某个产品的收益</li>
+<li>特定的某天是否会发生地震</li>
+</ul>
+<p>5) <strong>支持向量机 (Support Vector Machines)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-818dea0b2a5db0d06b4d09c4c35e4add_1440w.jpg" alt="v2-818dea0b2a5db0d06b4d09c4c35e4add_1440w"></p>
+<p>SVM 是一种二分算法。假设在 N 维空间，有一组点，包含两种类型，SVM 生成 a (N-1) 维的超平面，把这些点分成两组。比如你有一些点在纸上面，这些点是线性分离的。SVM 会找到一个直线，把这些点分成两类，并且会尽可能远离这些点。</p>
+<p>从规模看来，SVM（包括适当调整过的）解决的一些特大的问题有：广告、人类基因剪接位点识别、基于图片的性别检测、大规模图片分类…</p>
+<p>6) <strong>集成方法 (Ensemble Methods)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-fb5fe42fac7ae7a423c438640de92cff_1440w.jpg" alt="v2-fb5fe42fac7ae7a423c438640de92cff_1440w"></p>
+<p>集成方法吸纳了很多算法，构建一个分类器集合，然后给它们的预测带权重的进行投票，从而进行分类。最初的集成方法是贝叶斯平均法 (Bayesian averaging)，但是最近的算法集还包括了纠错输出编码 (error-correcting output coding) ，bagging 和 boosting</p>
+<p>那么集成方法如何工作的？为什么它们比单独的模型更好？</p>
+<ul>
+<li>它们均衡了偏差：就像如果你均衡了大量的倾向民主党的投票和大量倾向共和党的投票，你总会得到一个不那么偏颇的结果。</li>
+<li>它们降低了方差：集合大量模型的参考结果，噪音会小于单个模型的单个结果。在金融上，这叫投资分散原则 (diversification)—— 一个混搭很多种股票的投资组合，比单独的股票更少变故。</li>
+<li>它们不太可能过度拟合：如果你有单独的模型不是完全拟合，你结合每个简单方法建模，就不会发生过度拟合 (over-fitting)</li>
+</ul>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>7) <strong>聚类算法 (Clustering Algorithms)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-f54021ee5f3458d96bfdbfd633020194_1440w.jpg" alt="v2-f54021ee5f3458d96bfdbfd633020194_1440w"></p>
+<p>聚类就是把一组对象分组化的任务，使得在同一组的对象比起其它组的对象，它们彼此更加相似。</p>
+<p>每种聚类算法都不同，下面是其中一些：</p>
+<ul>
+<li>基于图心（Centroid）的算法</li>
+<li>基于连接的算法</li>
+<li>基于密集度的算法</li>
+<li>概率论</li>
+<li>降维</li>
+<li>神经网络 / 深度学习</li>
+</ul>
+<p>8) <strong>主成分分析 (Principal Component Analysis)</strong></p>
+<p>PCA 是一种统计过程，它通过正交变换把一组可能相关联的变量观察，转换成一组线性非相关的变量的值，这些非相关的变量就是主成分。</p>
+<p>PCA 的应用包括压缩、简化数据使之易于学习，可视化。需要注意的是，当决定是否用 PCA 的时候，领域知识特别重要。它不适用于噪音多的数据（所有成分的方差要很高才行）</p>
+<p>9) <strong>奇异值分解 (Singular Value Decomposition)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-6ab79925833165f9076bde770beb081e_1440w.jpg" alt="v2-6ab79925833165f9076bde770beb081e_1440w"></p>
+<p>线性代数中，SVD 是对一个特别复杂的矩阵做因式分解。比如一个 m*n 的矩阵 M，存在一个分解如 M = UΣV，其中 U 和 V 是酉矩阵，Σ 是一个对角矩阵。</p>
+<p>PCA 其实是种简单的 SVD。在计算机图形领域，第一个脸部识别算法就用了 PCA 和 SVD，用特征脸 (eigenfaces) 的线性结合表达脸部图像，然后降维，用简单的方法把脸部和人匹配起来。尽管如今的方法更加复杂，依然有很多是依靠类似这样的技术。</p>
+<p>10) <strong>独立成分分析 (Independent Component Analysis)</strong></p>
+<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/v2-fafdf6f5525015e99a976f66eb64fb06_1440w.jpg" alt="v2-fafdf6f5525015e99a976f66eb64fb06_1440w"></p>
+<p>ICA 是一种统计技术。它发掘随机变量、测量数据或者信号的集合中隐含的因素。ICA 定义了一种通用模型，用于观测到的多变量数据，通常是一个巨大的样本数据库。在这一模型中，假设数据变量是一些未知的、潜在的变量的线性组合，而组合方式也是未知的。同时假设，潜在的变量是非高斯分布且相互独立的，我们称之为观测数据的独立成分 (Independent components)。</p>
+<p>ICA 与 PCA 有一定关联，但是一种更加有用的技术，在经典方法完全失效的时候，可以发现数据源中的潜在因素。它的应用包括数字图片，文件数据库，经济指数和心理测量。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/19/Pandas/" rel="prev" title="Pandas">
+      <i class="fa fa-chevron-left"></i> Pandas
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/22/Pandas%E6%95%B0%E6%8D%AE%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90/" rel="next" title="Pandas数据特征分析">
+      Pandas数据特征分析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习的分类"><span class="nav-number">1.</span> <span class="nav-text">机器学习的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本的机器学习算法"><span class="nav-number">2.</span> <span class="nav-text">基本的机器学习算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">3.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无监督学习"><span class="nav-number">4.</span> <span class="nav-text">无监督学习</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yaowei Wang"
+      src="/images/photo.jpeg">
+  <p class="site-author-name" itemprop="name">Yaowei Wang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:yaowei.wang@sjtu.edu.cn" title="E-Mail → mailto:yaowei.wang@sjtu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yaowei Wang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">59k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">54 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
