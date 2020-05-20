@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>大师兄科研网站学习心得</title>
+    <url>/2020/05/20/%E5%A4%A7%E5%B8%88%E5%85%84%E7%A7%91%E7%A0%94%E7%BD%91%E7%AB%99%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</url>
+    <content><![CDATA[<h4 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h4><ol>
+<li>Density functional theory：A practical introduction, by David Sholl </li>
+<li>Vasp pdf 官方手册 </li>
+<li>Vasp官方论坛</li>
+<li>Vs-code 文本编辑</li>
+<li>Material studio</li>
+<li>P4-vasp</li>
+<li>Vesta</li>
+</ol>
+<h4 id="输入文件简介"><a href="#输入文件简介" class="headerlink" title="输入文件简介"></a>输入文件简介</h4><p><strong>INCAR：</strong>告诉VASP算什么，怎么算</p>
+<p>金属ISMEAR=1，分子，半导体和绝缘体ISMEAR=0。在DOS能带计算中， 使用ISMEAR = -5 用于获取精确的信息。 SIGMA一般取0.10 或者采用默认值 0.20 即可。 当ISMEAR=-5时，SIGMA的值可以忽略。分子原子体系，SIGMA=0.01。SIGMA的测试标准是：<code>grep &#39;entropy T&#39; OUTCAR</code>/体系原子数目 &lt; 0.001即可。</p>
+<p><strong>POSCAR：</strong>各个原子的位置信息</p>
+<p>Monkhorst-Pack Grid(原始网格)。gamma centered Monkhorst-Pack Grid (高等级的)</p>
+<p>两者的区别是 M 在 G的基础上在三个方向上平移了1/(2N)个单位。<strong>计算时</strong>：(1)对于原子或者分子的计算，K点取一个gamma点就够了。(2)永远用Gamma centered就可以了。</p>
+<p><strong>KPOINTS：</strong>包含计算的K点信息==（不理解什么是K点信息）==</p>
+<p><strong>POTCAR：</strong>对应的是计算过程中每个原子的平面波基组，描述原子中原子核和电子的相关信息。 ==（什么是平面波基组？这个问题我一直不太了解）==</p>
+<p>POTCAR要和POSCAR保持一致，负责计算会出错。</p>
+<p><code>grep TIT POTCAR</code> 查看POTCAR中的元素</p>
+<p><code>grep ENMAX POTCAR</code> 查看POTCAR的Cut-off 能量</p>
+<h4 id="一些常见的linux操作"><a href="#一些常见的linux操作" class="headerlink" title="一些常见的linux操作"></a>一些常见的linux操作</h4><p><code>man cat</code>  or <code>cat -help</code> 查看cat命令帮助</p>
+<p>cat: 文件名前加n会显示行数</p>
+<p>more:和cat一样用来查看文件</p>
+<p>less: 运行后，敲v是编辑命令，敲q是离开命令</p>
+<p>echo:相当于python的打印命令</p>
+<p>linux下的单引号会不识别变量，只有双引号识别变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立0.01-0.09九个文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..9&#125;; <span class="keyword">do</span> mkdir 0.0<span class="variable">$i</span>;<span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#分别替换0.01-0.09九个文件夹中的SIGMA值为0.01-0.09</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..9&#125;;<span class="keyword">do</span> sed -i <span class="string">"16s/0.05/0.0<span class="variable">$i</span>/g"</span> 0.0<span class="variable">$i</span>/INCAR ;<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>VASP与Linux操作系统</category>
+      </categories>
+  </entry>
+  <entry>
     <title>精简生活</title>
     <url>/2020/05/20/%E7%B2%BE%E7%AE%80%E7%94%9F%E6%B4%BB/</url>
     <content><![CDATA[<h4 id="工作篇"><a href="#工作篇" class="headerlink" title="工作篇"></a>工作篇</h4><p>每天只完成最核心的一件任务</p>

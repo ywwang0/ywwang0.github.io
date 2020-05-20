@@ -157,6 +157,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/cif%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2vasp%E6%A0%BC%E5%BC%8Fpython%E8%84%9A%E6%9C%AC-cif-to-vasp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/04/cif%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2vasp%E6%A0%BC%E5%BC%8Fpython%E8%84%9A%E6%9C%AC-cif-to-vasp/" class="post-title-link" itemprop="url">cif格式转换vasp格式python脚本(cif_to_vasp)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-04 11:02:23 / 修改时间：11:10:28" itemprop="dateCreated datePublished" datetime="2020-04-04T11:02:23+08:00">2020-04-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">常用脚本</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>865</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>python 3</p>
+<p><a href="https://wiki.fysik.dtu.dk/ase/#atomic-simulation-environment" target="_blank" rel="noopener">Atomic Simulation Environment</a></p>
+<h3 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ase <span class="keyword">import</span> io</span><br><span class="line">atoms = io.read(jobname+<span class="string">'.cif'</span>)</span><br><span class="line">atoms.write(<span class="string">'POSCAR'</span>, format = <span class="string">'vasp'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>基于ase的三行脚本即可将.cif文件转换为vasp格式文件，然而由于ase包的问题，转换后的POSCAR文件第六行缺少对应的元素符号，需额外通过python脚本处理生成好的POSCAR文件来达到最终目的。</p>
+<p><strong>完整代码如下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ase <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取当前目录下全部.cif文件名称，其他目录下的.cif需要给出完整路径并且用os.chdir改变工作路径</span></span><br><span class="line">files_bak = os.listdir(<span class="string">'./'</span>)</span><br><span class="line">files = []</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> files_bak:</span><br><span class="line">    <span class="keyword">if</span> f[<span class="number">-4</span>:] == <span class="string">'.cif'</span>:</span><br><span class="line">        files.append(f)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="comment">#先将所有的cif用ase转换为poscar文件，并删除原来的cif文件        </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">    atoms = io.read(i)</span><br><span class="line">    atoms.write(<span class="string">'temp.vasp'</span>, format = <span class="string">'vasp'</span>)</span><br><span class="line">    os.remove(i)</span><br><span class="line">    <span class="comment">#将现有的cif文件第六行加上第一行的元素符号，存为最终的POSCAR文件</span></span><br><span class="line">    f = open(i[<span class="number">0</span>:<span class="number">-4</span>]+<span class="string">'.vasp'</span>,<span class="string">'w'</span>)</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'temp.vasp'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> p:</span><br><span class="line">        os.remove(<span class="string">'temp.vasp'</span>)</span><br><span class="line">        <span class="comment">#在readlines()读取元素时，不必将每个元素结尾的\n用.strip()函数去掉，因为再次写入会自动达到换行效果</span></span><br><span class="line">        lines = p.readlines()</span><br><span class="line">        lines.insert(<span class="number">5</span>,lines[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> lines:</span><br><span class="line">            f.write(l)</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h3><ul>
+<li>windows平台，MS建好模型后通过坚果云共享到MAC系统中，<strong>cif一定几率变成二进制文件</strong>报错</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/%E6%9D%90%E6%96%99%E5%85%89%E5%AD%A6%E6%80%A7%E8%B4%A8(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1339,126 +1433,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/%E8%85%90%E8%9A%80%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/23/%E8%85%90%E8%9A%80%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">腐蚀热力学基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-23 08:36:17" itemprop="dateCreated datePublished" datetime="2020-03-23T08:36:17+08:00">2020-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-31 20:51:57" itemprop="dateModified" datetime="2020-03-31T20:51:57+08:00">2020-03-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%85%90%E8%9A%80%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">腐蚀科学</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<p>Here we shall go through the basic thermodynamics that lies behind use of the Ellingham diagram. First, we will establish the link between the thermodynamics of a reaction and its chemistry.</p>
-<p>The Gibbs free energy, <em>G</em>, of a system can be described as the energy in the system available to do work. It is one of the most useful state functions in thermodynamics as it considers only variables contained within the system, at constant temperature and pressure.</p>
-<p>It is defined as:</p>
-<p>G=H−TS     (1)</p>
-<p>Here, <em>T</em> is the temperature of the system and <em>S</em> is the entropy, or disorder, of the system. <em>H</em> is the enthalpy of the system, defined as;</p>
-<p>H=U+pv     (2)</p>
-<p>Where <em>U</em> is the internal energy, p is the pressure and <em>v</em> is the volume.</p>
-<p>To see how the free energy changes when the system is changed by a small amount, we can differentiate the above functions:</p>
-<p>dG=dH−TdS−SdT     (3)</p>
-<p>and;</p>
-<p>dH=dU+pdv+vdp     (4)</p>
-<p>From the first law,</p>
-<p>dU=dq′−dw     (5)</p>
-<p>and from the second law,</p>
-<p>dS= dq′T ,    (6)</p>
-<p>we see that,</p>
-<p>dG=dq′−dw+pdv+vdp−TdS−SdT=−dw+pdv+vdp−SdT=vdp−SdT     (7)</p>
-<p>since work, dw=pdv</p>
-<p>The above equation shows that if the temperature and pressure are kept constant, we see that the free energy does not change. This means that the Gibbs free energy of a system is unique at each temperature and pressure.</p>
-<p>At a constant temperature d<em>T</em> = 0 and so</p>
-<p>dG=vdp     (8)</p>
-<p>We can find <em>G</em> for the system by integration. To do this we need the system’s equation of state, to give a relationship between <em>v</em> and p.</p>
-<p>We will consider an ideal gas. For one mole of an ideal gas the equation of state is;</p>
-<p>v= RTp ,    (9)</p>
-<p>so (8) becomes</p>
-<p>dG= RTdpp     (10)</p>
-<p>Integrating:</p>
-<p>G=RTln(p)+const.     (11)</p>
-<p>This we can express as</p>
-<p>G=$G^∘$+RTln(p$p^∘$)     (12)</p>
-<p>We define <em>G</em>° to be the standard free energy at the standard pressure, p°. These standard values are nothing more than lower integration constants, but using them is very useful, as we shall see. They are a consequence of the fact that one can only describe energy <em>changes</em> absolutely – there is no absolute energy scale, so the energy value we give to a system is arbitrary.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1531,7 +1505,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1584,7 +1558,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">56 分钟</span>
 </div>
 
         
