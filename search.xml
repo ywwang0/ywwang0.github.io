@@ -440,7 +440,7 @@
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *;</span><br><span class="line">do	</span><br><span class="line">		<span class="comment">#如果i是文件夹则打开i</span></span><br><span class="line">    <span class="keyword">if</span> [ -d $i ];then</span><br><span class="line">        cd $i</span><br><span class="line">        <span class="keyword">if</span> grep -q <span class="string">"to POSCAR and continue"</span> vasp.out;then</span><br><span class="line">            pwd</span><br><span class="line">            mv CONTCAR POSCAR</span><br><span class="line">            sbatch -N <span class="number">2</span> ~/bin/vasp_std.slurm</span><br><span class="line">        <span class="comment">#若结果收敛则输出数字0</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            echo <span class="number">0</span></span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Linux操作系统</category>
+        <category>VASP与Linux操作系统</category>
       </categories>
   </entry>
   <entry>
@@ -455,7 +455,7 @@
 
 <h4 id="if-else条件判断"><a href="#if-else条件判断" class="headerlink" title="if else条件判断"></a>if else条件判断</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#elif可以省略</span></span><br><span class="line"><span class="keyword">if</span> 条件判断；then</span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">elif</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">elif</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Linux操作系统</category>
+        <category>VASP与Linux操作系统</category>
       </categories>
   </entry>
   <entry>
