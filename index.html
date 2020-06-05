@@ -182,7 +182,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-05 09:54:35 / 修改时间：10:18:42" itemprop="dateCreated datePublished" datetime="2020-06-05T09:54:35+08:00">2020-06-05</time>
+              <time title="创建时间：2020-06-05 09:54:35 / 修改时间：10:52:35" itemprop="dateCreated datePublished" datetime="2020-06-05T09:54:35+08:00">2020-06-05</time>
             </span>
 
           <br>
@@ -191,7 +191,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>798</span>
+              <span>844</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -210,23 +210,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="单分支结构"><a href="#单分支结构" class="headerlink" title="单分支结构"></a>单分支结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = eval(input(<span class="string">'请输入猜测的数字：'</span>))</span><br><span class="line"><span class="keyword">if</span> a == <span class="number">99</span>:</span><br><span class="line">  print(<span class="string">'猜对了'</span>)</span><br><span class="line">print(<span class="string">'猜错了'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>请输入猜测的数字： <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>猜错了</span><br></pre></td></tr></table></figure>
-
-<p><strong>Note:</strong>自己以前总是多写带else的语句，其实不需要，单分支就可以</p>
-<h4 id="二分支结构"><a href="#二分支结构" class="headerlink" title="二分支结构"></a>二分支结构</h4><p>以上单分支例子也可改写为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = eval(input(<span class="string">'请输入猜测的数字：'</span>))</span><br><span class="line"><span class="keyword">if</span> a == <span class="number">99</span>:</span><br><span class="line">  print(<span class="string">'猜对了'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">'猜错了'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="二分支条件的紧凑型（只支持表达式，不支持赋值）"><a href="#二分支条件的紧凑型（只支持表达式，不支持赋值）" class="headerlink" title="二分支条件的紧凑型（只支持表达式，不支持赋值）"></a>二分支条件的紧凑型（只支持表达式，不支持赋值）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = eval(input(<span class="string">'请输入猜测的数字：'</span>))</span><br><span class="line">print(<span class="string">'猜对了'</span>) <span class="keyword">if</span> a == <span class="number">99</span> <span class="keyword">else</span> print(<span class="string">'猜错了'</span>)<span class="comment">#可以理解成中间是判断的条件，条件为真走左边，假走右边</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>请输入猜测的数字： <span class="number">99</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>猜对了</span><br></pre></td></tr></table></figure>
-
-<h4 id="多分支结构"><a href="#多分支结构" class="headerlink" title="多分支结构"></a>多分支结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">score = <span class="number">63</span></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    score = <span class="string">'A'</span></span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">    score = <span class="string">'B'</span></span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">70</span>:</span><br><span class="line">    score = <span class="string">'C'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    score = <span class="string">'D'</span></span><br><span class="line">print(<span class="string">'成绩等级为：&#123;&#125;'</span>.format(score))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>成绩等级为：D</span><br></pre></td></tr></table></figure>
-
-<h4 id="异常捕获（try-except）"><a href="#异常捕获（try-except）" class="headerlink" title="异常捕获（try-except）"></a>异常捕获（try-except）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当try后面的语句有问题的时候才会实现except</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  num = eval(input(<span class="string">'请输入一个整数：'</span>))</span><br><span class="line">  print(num**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">  print(<span class="string">'输入的不是整数'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>高级用法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  &lt;语句块<span class="number">1</span>&gt;</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">  &lt;语句块<span class="number">2</span>&gt;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  &lt;语句块<span class="number">3</span>&gt;</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">  &lt;语句块<span class="number">4</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<p>先执行语句块1，出错了执行语句块2，不出错执行语句块3，最后一定会执行语句块4</p>
-
+          <p>本文中包括python语法中单分支结构，二分支结构，二分支结构紧凑形，多分支结构和异常捕获</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/05/python%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1215,7 +1207,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
 </div>
 
         
