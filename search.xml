@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>腐蚀动力学</title>
+    <url>/2020/06/16/%E8%85%90%E8%9A%80%E5%8A%A8%E5%8A%9B%E5%AD%A6/</url>
+    <content><![CDATA[<blockquote>
+<p> Introduction to corrosion science-E.McCafferty, P127</p>
+</blockquote>
+<h4 id="Overpotential"><a href="#Overpotential" class="headerlink" title="Overpotential"></a>Overpotential</h4><p>$\eta = E-E_o$</p>
+<p>where E is the electrode potential for some condition of current flow and $E_o$ is the electrode potential for zero current flow (also called the open-circuit potential, corrosion potential). Note that the electrode potential of zero current flow Eo should not be confused with the standard electrode potential $E^o$, which plays a prominent role in corrosion thermodynamics.</p>
+<h4 id="Absolute-Reaction-Rate-Theory"><a href="#Absolute-Reaction-Rate-Theory" class="headerlink" title="Absolute Reaction Rate Theory"></a>Absolute Reaction Rate Theory</h4>]]></content>
+      <tags>
+        <tag>腐蚀科学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo博客维护</title>
     <url>/2020/06/16/hexo%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/</url>
     <content><![CDATA[<p>本文包括博客运营过程中的常见问题及解决方案</p>
