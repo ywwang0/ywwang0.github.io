@@ -148,7 +148,7 @@
 <p>ISYM参数为设置</p>
 ]]></content>
       <categories>
-        <category>VASP与Linux操作系统</category>
+        <category>VASP</category>
       </categories>
   </entry>
   <entry>
@@ -176,31 +176,6 @@
 <h4 id="少吃午饭，少食多餐"><a href="#少吃午饭，少食多餐" class="headerlink" title="少吃午饭，少食多餐"></a>少吃午饭，少食多餐</h4><p>关于午饭，我就一点认识，少吃精制碳水。「饭困」绝对是下午工作的大敌，表现基本是中午吃了大碗白米饭或者一大碗面，哪怕中午睡过午觉，下午也昏昏欲睡。这是因为亚洲食物普遍含精制碳水较多，导致血糖水平陡增，大脑会释放出激素，结果就是让人困倦。这点在 Minja 在关于 <a href="http://link.zhihu.com/?target=https%3A//sspai.com/post/45538">代餐</a> 的文章里也提到过。</p>
 <p>作为陕西人的我深有体会，中午一大碗扯面过后，吃的是很舒服，下午基本上就瘫痪了。所以在美国我中午一般就是一个三明治，下午会喝杯咖啡补充咖啡因。有时候也会少食多餐，11 点吃一个蛋白棒，1 点吃个酸奶之类的，这样下午上课也不会很困。中午还是要小憩一会儿的，回宿舍太麻烦，就趴图书馆听着歌睡 20 分钟，下午就会精神满满了。</p>
 <h4 id="精简生活，少就是多"><a href="#精简生活，少就是多" class="headerlink" title="精简生活，少就是多"></a>精简生活，少就是多</h4><p>面对着信息爆炸的社会，我们每天都要面对无穷无尽的消息。微博热搜，qq群，微信消息，朋友圈，各种小视频软件……很多时候我们的经历都被分散到好多方面。</p>
-]]></content>
-      <categories>
-        <category>杂学杂记</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo设置方法及常见报错解决方案</title>
-    <url>/2020/04/29/hexo%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95%E5%8F%8A%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h4 id="Spawn-failed"><a href="#Spawn-failed" class="headerlink" title="Spawn failed"></a>Spawn failed</h4><a id="more"></a>解决办法是删除博客根目录下的`.deploy_git`文件夹：
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>杂学杂记</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>添加图片测试</title>
-    <url>/2020/04/29/%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hew new <span class="string">'添加图片测试'</span></span><br><span class="line">在source/_posts/添加图片测试 文件夹中加入图片</span><br><span class="line">再将图片插入此.md文件中</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p><img src="/Users/wangyaowei/Documents/Blog/blog/source/images/4_country.png" alt="4_country"></p>
 ]]></content>
       <categories>
         <category>杂学杂记</category>
@@ -354,25 +329,6 @@
       </categories>
   </entry>
   <entry>
-    <title>戒除手机日记</title>
-    <url>/2020/04/15/%E6%88%92%E9%99%A4%E6%89%8B%E6%9C%BA%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[<h5 id="2020年4月15号"><a href="#2020年4月15号" class="headerlink" title="2020年4月15号"></a>2020年4月15号</h5><a id="more"></a>戒掉手机第一天，打开app限额，手机睡觉时候放到后走廊，所有可能的操作都放在电脑上。
-
-<h4 id="想用的方法"><a href="#想用的方法" class="headerlink" title="想用的方法"></a>想用的方法</h4><ul>
-<li>手机放到看不见的地方</li>
-<li>每周日是数字安息日</li>
-<li>预防信息中毒</li>
-<li>每天限流2小时</li>
-</ul>
-<h4 id="一点感想"><a href="#一点感想" class="headerlink" title="一点感想"></a>一点感想</h4><p>不知道从什么时候开始，手机好像成了我生活中最不可缺少的一部分。一天中，我可以不和父母女朋友谈话，我可以不吃饭，我可以不出门，我可以不洗脸不刷牙，但我应该没办法不看手机。</p>
-<p>100年前的人们躺在床上抽鸦片，100年后的人少年们躺在床上玩手机……</p>
-<p>自己玩手机玩些什么呢？<strong>逛微博，刷知乎，看手机消息和朋友圈，看西瓜视频，拼多多，甚至在睡觉的时候都要播放小说，强行往大脑里填装信息</strong>，看了两三个小时之后，大脑空空的，好像又什么都没有看。自从有了手机，我开始一天天关在自己房间，父母认为我在做作业，其实连续几天我都未曾写一个字，我的注意力与思考能力也在不知不觉中倒退，然后思维越来越懒惰，不想思考，没有办法一直集中精神，没有办法阅读一大段长的文字。有时候好不容易劝说自己放下了手机，但面对自己的作业与太久没有思考的大脑，总会发呆出神，这些状况都是手机在不知不觉中给我们带来的危害。</p>
-]]></content>
-      <categories>
-        <category>杂学杂记</category>
-      </categories>
-  </entry>
-  <entry>
     <title>energy_above_convex_hull脚本</title>
     <url>/2020/04/14/energy-above-convex-hull%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pymatgen.apps.borg.hive <span class="keyword">import</span> VaspToComputedEntryDrone</span><br><span class="line"><span class="keyword">from</span> pymatgen.apps.borg.queen <span class="keyword">import</span> BorgQueen</span><br><span class="line"><span class="keyword">from</span> pymatgen.io.vasp.outputs <span class="keyword">import</span> Outcar</span><br><span class="line"><span class="keyword">from</span> pymatgen.analysis.phase_diagram <span class="keyword">import</span> PhaseDiagram</span><br><span class="line"><span class="keyword">from</span> pymatgen.analysis.phase_diagram <span class="keyword">import</span> PDPlotter</span><br><span class="line"><span class="keyword">from</span> pymatgen.entries.compatibility <span class="keyword">import</span> MaterialsProjectCompatibility</span><br><span class="line"><span class="keyword">from</span> pymatgen.ext.matproj <span class="keyword">import</span> MPRester</span><br><span class="line"></span><br><span class="line">para = [<span class="string">"is_hubbard"</span>, <span class="string">"hubbards"</span>,<span class="string">"potcar_symbols"</span>, <span class="string">"run_type"</span>,<span class="string">"structures"</span>,<span class="string">"efermi"</span>,<span class="string">"is_spin"</span>,<span class="string">"potcar_spec"</span>,<span class="string">"atomic_symbols"</span>]<span class="comment">#,"get_computed_entry"]#"potcar_spec"</span></span><br><span class="line">dat = [<span class="string">"final_energy"</span>]</span><br><span class="line">etry = VaspToComputedEntryDrone(parameters = para,data = dat)</span><br><span class="line"><span class="comment">#entry.assimilate(a)#.to_json())</span></span><br><span class="line">path = <span class="string">"/lustre/home/acct-umjzhh/umjzhh-2/zhenming/e-hull/"</span></span><br><span class="line">queen = BorgQueen(etry,rootpath=path,number_of_drones=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#queen.serial_assimilate(path)</span></span><br><span class="line">entries = queen.get_data()</span><br><span class="line"><span class="comment">#save_data = queen.save_data('entry_save.txt')</span></span><br><span class="line"><span class="comment">#entries = queen.load_data('entry_save.json')</span></span><br><span class="line"><span class="comment">#print("entries:",entries)</span></span><br><span class="line"><span class="comment">#print("enrty0:",entries[0])</span></span><br><span class="line"><span class="comment">#print("entries:",dir(entries[0]))</span></span><br><span class="line">a=MPRester(<span class="string">"mqzy3IaxSNegF941"</span>)</span><br><span class="line">compat = MaterialsProjectCompatibility()</span><br><span class="line">computed_entries = compat.process_entries(entries)</span><br><span class="line">print(<span class="string">"len_computed_entries:"</span>,len(computed_entries))</span><br><span class="line">elements = [ ]</span><br><span class="line"><span class="keyword">for</span> entry <span class="keyword">in</span> computed_entries:</span><br><span class="line">    <span class="comment">#print("entry.as_dict():",entry.as_dict()[u'parameters'][u'atomic_symbols'])</span></span><br><span class="line">    <span class="comment">#print("set(entry.as_dict():",set(entry.as_dict()[u'parameters'][u'atomic_symbols']))</span></span><br><span class="line">    element = list(set(entry.as_dict()[<span class="string">u'parameters'</span>][<span class="string">u'atomic_symbols'</span>]))</span><br><span class="line">    <span class="comment">#print("list(set(entry.as_dict():)",element)</span></span><br><span class="line">    s = [ ]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(element)):</span><br><span class="line">        s.append(str(element[i]))</span><br><span class="line">    elements.append(s)<span class="comment">#json.dumps(#.get_reduced_composition_and_factor#[u'atomic_symbols']#composition.reduced_composition#.atomic_symbols</span></span><br><span class="line"><span class="comment">#print(elements)</span></span><br><span class="line">ss=[]  </span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(element)):</span><br><span class="line">        ss.append(element[i])</span><br><span class="line">ss = list(set(ss))</span><br><span class="line">mp_entries = a.get_entries_in_chemsys(ss)</span><br><span class="line">total_entries = computed_entries+mp_entries</span><br><span class="line">pd = PhaseDiagram(total_entries)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(computed_entries)):</span><br><span class="line">    decomp,e_above_hull = pd.get_decomp_and_e_above_hull(computed_entries[i])</span><br><span class="line">    print(<span class="string">"name and ebh:"</span>,(computed_entries[i].name,e_above_hull))</span><br></pre></td></tr></table></figure>
@@ -380,28 +336,6 @@
 ]]></content>
       <categories>
         <category>常用脚本</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>材料光学性质(二)</title>
-    <url>/2020/04/09/%E6%9D%90%E6%96%99%E5%85%89%E5%AD%A6%E6%80%A7%E8%B4%A8(%E4%BA%8C)/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h3 id="光学性质基础"><a href="#光学性质基础" class="headerlink" title="光学性质基础"></a>光学性质基础</h3><p>入射定律：</p>
-<p>Sinθ1/sinθ2 = n2/n1 = v1/v2 = λ1/λ2</p>
-<p>只有垂直于光栅的光才可以通过</p>
-<p>opaque: all photons can be absorbed</p>
-<p>光是电磁波，光会使固体中的自由电子震动，但是光和衍生的电磁波的最大值刚好错开。</p>
-<h4 id="words"><a href="#words" class="headerlink" title="words"></a>words</h4><p>Isotropic:各向同性</p>
-<p>Sodium:钠</p>
-<p>copper:铜</p>
-<p>Zinc:锌</p>
-<p>Prism:棱镜</p>
-<p>reflection:反射</p>
-<p>refraction:折射</p>
-]]></content>
-      <categories>
-        <category>材料物理性能</category>
       </categories>
   </entry>
   <entry>
@@ -549,11 +483,6 @@
       </categories>
   </entry>
   <entry>
-    <title>材料的物理性能</title>
-    <url>/2020/03/31/%E6%9D%90%E6%96%99%E7%9A%84%E7%89%A9%E7%90%86%E6%80%A7%E8%83%BD/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Python常用技巧总结</title>
     <url>/2020/03/31/Python%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<a id="more"></a>
@@ -606,7 +535,7 @@
 
 <h4 id="if-else条件判断"><a href="#if-else条件判断" class="headerlink" title="if else条件判断"></a>if else条件判断</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#elif可以省略</span></span><br><span class="line"><span class="keyword">if</span> 条件判断；then</span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">elif</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">elif</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句<span class="number">1</span></span><br><span class="line">    语句<span class="number">2</span></span><br><span class="line">    ……</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>VASP与Linux操作系统</category>
+        <category>Linux操作系统与常用软件</category>
       </categories>
   </entry>
   <entry>
