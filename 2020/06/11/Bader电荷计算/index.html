@@ -28,7 +28,7 @@
 <meta property="og:description" content="参考文献HenkelmanGroup 大师兄科研网 计算流程优化结构$\rightarrow$Bader静态计算 Bader电荷分析的计算部分1）将优化结构得到的CONTCAR改名为POSCAR 2）更改参数 1234567# 需要更改的参数IBRION &#x3D; -1NSW &#x3D; 0LCHARG &#x3D; True #确定这个参数不是False否则无法写出CHGCAR# 需要加的参数LAECHG &#x3D; .T">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-11T08:55:02.000Z">
-<meta property="article:modified_time" content="2020-06-17T01:23:22.903Z">
+<meta property="article:modified_time" content="2020-06-17T01:25:41.538Z">
 <meta property="article:author" content="Yaowei Wang">
 <meta name="twitter:card" content="summary">
 
@@ -191,7 +191,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-17 09:23:22" itemprop="dateModified" datetime="2020-06-17T09:23:22+08:00">2020-06-17</time>
+                <time title="修改时间：2020-06-17 09:25:41" itemprop="dateModified" datetime="2020-06-17T09:25:41+08:00">2020-06-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,7 +209,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>248</span>
+              <span>294</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -237,9 +237,8 @@
 <p>2）更改参数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要更改的参数</span></span><br><span class="line">IBRION = -1</span><br><span class="line">NSW = 0</span><br><span class="line">LCHARG = True <span class="comment">#确定这个参数不是False否则无法写出CHGCAR</span></span><br><span class="line"><span class="comment"># 需要加的参数</span></span><br><span class="line">LAECHG = .TRUE.</span><br><span class="line">LCHARG = .TRUE.</span><br></pre></td></tr></table></figure>
 
-
-
-<p><code>chgsum.pl AECCAR0 AECCAR2; bader CHGCAR -ref CHGCAR_sum</code></p>
+<p>3) 计算后运行命令查看文件”ACF.dat”的第五列（CHARGE列）</p>
+<p><code>chgsum.pl AECCAR0 AECCAR2; bader CHGCAR -ref CHGCAR_sum; cat ACF.dat</code></p>
 
     </div>
 

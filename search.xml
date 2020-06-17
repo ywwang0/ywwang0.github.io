@@ -72,9 +72,8 @@
 <p>2）更改参数</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 需要更改的参数</span></span><br><span class="line">IBRION = -1</span><br><span class="line">NSW = 0</span><br><span class="line">LCHARG = True <span class="comment">#确定这个参数不是False否则无法写出CHGCAR</span></span><br><span class="line"><span class="comment"># 需要加的参数</span></span><br><span class="line">LAECHG = .TRUE.</span><br><span class="line">LCHARG = .TRUE.</span><br></pre></td></tr></table></figure>
 
-
-
-<p><code>chgsum.pl AECCAR0 AECCAR2; bader CHGCAR -ref CHGCAR_sum</code></p>
+<p>3) 计算后运行命令查看文件”ACF.dat”的第五列（CHARGE列）</p>
+<p><code>chgsum.pl AECCAR0 AECCAR2; bader CHGCAR -ref CHGCAR_sum; cat ACF.dat</code></p>
 ]]></content>
       <categories>
         <category>VASP</category>
