@@ -76,9 +76,9 @@
 
 <p><code>chgsum.pl AECCAR0 AECCAR2; bader CHGCAR -ref CHGCAR_sum</code></p>
 ]]></content>
-      <tags>
-        <tag>VASP</tag>
-      </tags>
+      <categories>
+        <category>VASP</category>
+      </categories>
   </entry>
   <entry>
     <title>python程序的控制</title>
@@ -106,12 +106,6 @@
       <tags>
         <tag>Python基础语法</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>newtest</title>
-    <url>/2020/06/02/newtest/</url>
-    <content><![CDATA[<p><img src="/start.jpg" alt></p>
-]]></content>
   </entry>
   <entry>
     <title>有那些好的科研习惯？-From知乎</title>
