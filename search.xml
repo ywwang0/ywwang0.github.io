@@ -3,7 +3,17 @@
   <entry>
     <title>SSH 三步解决免密登录</title>
     <url>/2020/06/22/SSH-%E4%B8%89%E6%AD%A5%E8%A7%A3%E5%86%B3%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h3 id="生成私钥文件"><a href="#生成私钥文件" class="headerlink" title="生成私钥文件"></a>生成私钥文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>终端中输入以上命令一路回车就好</p>
+<h3 id="将本地公匙增加到集群中"><a href="#将本地公匙增加到集群中" class="headerlink" title="将本地公匙增加到集群中"></a>将本地公匙增加到集群中</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line">拷贝内容到集群~/.ssh/authorized_keys中（自已不要覆盖其他人的信息）</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用alias命令简化登陆"><a href="#利用alias命令简化登陆" class="headerlink" title="利用alias命令简化登陆"></a>利用alias命令简化登陆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="built_in">alias</span> = <span class="built_in">alias</span> tji=<span class="string">'ssh -p 3391 um008@202.121.180.10'</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux操作系统与常用软件</category>
+      </categories>
   </entry>
   <entry>
     <title>做PPT注意事项</title>
