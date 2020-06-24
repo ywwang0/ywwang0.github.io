@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>论文写作</title>
+    <url>/2020/06/24/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>Author：<a href="mailto:mrimi@aps.org">mrimi@aps.org</a></p>
+</blockquote>
+<h2 id="How-to-write-a-great-scientific-paper"><a href="#How-to-write-a-great-scientific-paper" class="headerlink" title="How to write a great scientific paper"></a>How to write a great scientific paper</h2><h3 id="How-to-write-a-paper"><a href="#How-to-write-a-paper" class="headerlink" title="How to write a paper?"></a>How to write a paper?</h3><h4 id="Find-the-best-science"><a href="#Find-the-best-science" class="headerlink" title="Find the best science"></a>Find the best science</h4><ol>
+<li><strong>MOTIVASTION</strong>-Why this research?</li>
+<li><strong>OPEN QUESTION</strong>-What are the specific research needs?</li>
+<li><strong>KEY RESULT</strong>-What is really new?</li>
+<li><strong>IMPACT</strong>-What are the implications of the result?</li>
+</ol>
+<h4 id="Overcome-writing-challenges"><a href="#Overcome-writing-challenges" class="headerlink" title="Overcome writing challenges"></a>Overcome writing challenges</h4><ol>
+<li>Write with the reader in mind</li>
+<li>Practice</li>
+<li>Read, read, read!(读的多才能写得好：语言，组织结构)</li>
+<li>Speaking well not equals to writing well, be confident</li>
+</ol>
+<h4 id="Stages-of-writing"><a href="#Stages-of-writing" class="headerlink" title="Stages of writing"></a>Stages of writing</h4><p><strong>(1) Find the story - writing is storytelling</strong></p>
+<ul>
+<li>What srory do you want to tell?</li>
+<li>telling a stary is more than presneting results</li>
+<li>wat results/experiments are necessary to tell your story?</li>
+<li>Every paper tells one story</li>
+</ul>
+<p><strong>(2) Build the structure</strong></p>
+<ul>
+<li>use a logic-flow diagram</li>
+<li>paragraph = unit of thought</li>
+</ul>
+<p>eg. Structure example</p>
+<p>Each parafgraph shopuld tell a complete story</p>
+<p>each paragraph has an internal structure(Point first and last paragraph)</p>
+<ul>
+<li>give titles to paragraphs</li>
+</ul>
+<p><strong>(3) Find the best language for the story</strong></p>
+<ul>
+<li><p>Don not speak in a stuffy manner for a judgmental </p>
+</li>
+<li><p>Economy and highlights(越精确越短越好，少用副词，少用术语，写短句子)</p>
+</li>
+<li><p>the hole structure of paper</p>
+</li>
+</ul>
+<img src="/2020/06/24/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/structure.png" style="zoom:50%;">
+
+<h3 id="How-to-write-a-cover-letter"><a href="#How-to-write-a-cover-letter" class="headerlink" title="How to write a cover letter?"></a>How to write a cover letter?</h3><h4 id="Point-to-convery"><a href="#Point-to-convery" class="headerlink" title="Point to convery"></a>Point to convery</h4><ul>
+<li>Why the work was done, what’s the improvement over previous work and what are the implications, you can mention some relevant previous work.</li>
+<li>Why it is appropriare for the specific journal, and not a more specialized journal</li>
+<li>do not explain too much technical details in cover letter</li>
+<li>claim the work is important and suitable for specific journal and always *<u>explain the reason</u>*</li>
+</ul>
+<h4 id="Some-tips"><a href="#Some-tips" class="headerlink" title="Some tips"></a>Some tips</h4><ul>
+<li>It’s directed to the editors, target to them !</li>
+<li>Usually the referees won’t see it</li>
+<li>Short!(1 page max)</li>
+<li>Use it disclose confidential information</li>
+<li>Do not copy and paste the abstract</li>
+<li>For most journals, it’s optional, but it’s always recoomended.</li>
+</ul>
+<h3 id="为啥审稿周期这么长？"><a href="#为啥审稿周期这么长？" class="headerlink" title="为啥审稿周期这么长？"></a>为啥审稿周期这么长？</h3><ul>
+<li>远程办公，不能保持及时性</li>
+<li>审稿人有自己的工作，大咖们会比较忙</li>
+<li>很多因素共同作用下导致这样的原因</li>
+</ul>
+]]></content>
+      <categories>
+        <category>论文写作</category>
+      </categories>
+  </entry>
+  <entry>
     <title>chkdsk移动硬盘修复方法</title>
     <url>/2020/06/23/chkdsk%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>本文内含chkdsk移动硬盘修复方法</p>
