@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>皮尔逊相关系数</title>
+    <url>/2020/06/29/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/</url>
+    <content><![CDATA[<p>本文包括相关性分析-PCC皮尔逊相关系数内容及python代码实现</p>
+<a id="more"></a>
+
+<h4 id="什么是相关？"><a href="#什么是相关？" class="headerlink" title="什么是相关？"></a>什么是相关？</h4><blockquote>
+<p><strong>相关</strong>（Correlation，或称<strong>相关系数</strong>或<strong>关联系数</strong>），显示两个<a href="https://link.zhihu.com/?target=http%3A//zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F">随机变量</a>之间<strong>线性</strong>关系的强度和方向。</p>
+</blockquote>
+<p>所以当我们谈到相关，我们谈的就是线性相关。相关系数也有很多种，一般常用的是Pearson相关系数 (<a href="https://link.zhihu.com/?target=http%3A//en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">Pearson product-moment correlation coefficient</a>)，在 -1 到 +1 之间，其中 +1 表示完全线性正相关，-1 为完全线性负相关， 0 为线性不相关。</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><blockquote>
+<p>计算特征与目标变量之间的相关度</p>
+</blockquote>
+<h4 id="函数代码实现"><a href="#函数代码实现" class="headerlink" title="函数代码实现"></a>函数代码实现</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> pearsonr</span><br><span class="line">pearsonr(x, y) <span class="comment">#x，y为两个数字列表</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="输入和返回值"><a href="#输入和返回值" class="headerlink" title="输入和返回值"></a>输入和返回值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(<span class="number">1</span>)输入：x为特征，y为目标变量.在我第一次用的时候，x为吸附能，y为成键原子个数，晶体方向，bader等等</span><br><span class="line">(<span class="number">2</span>)输出：r：相关系数 [<span class="number">-1</span>，<span class="number">1</span>]之间。一般用r分析即可，大于<span class="number">0</span>正相关，小于<span class="number">0</span>负相关，绝对值越靠近<span class="number">1</span>相关性越大。</span><br><span class="line">p-value: p值。p值越小，表示相关系数越显著，一般p值在<span class="number">500</span>个样本以上时有较高的可靠性。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>numpy与Pandas常见操作</title>
     <url>/2020/06/29/numpy%E4%B8%8EPandas%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>本文包括numpy与Pandas常见操作</p>
 <a id="more"></a>
 
-<h4 id="读取与保存CSV文件"><a href="#读取与保存CSV文件" class="headerlink" title="读取与保存CSV文件"></a>读取与保存CSV文件</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'rawdata.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="读取与保存CSV文件"><a href="#读取与保存CSV文件" class="headerlink" title="读取与保存CSV文件"></a>读取与保存CSV文件</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'rawdata.xlsx'</span>)</span><br><span class="line">df.to_excel(<span class="string">'test.xls'</span>)</span><br></pre></td></tr></table></figure>
 
 <h4 id="获取DataFrame行名"><a href="#获取DataFrame行名" class="headerlink" title="获取DataFrame行名"></a>获取DataFrame行名</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.columns.values.tolist() <span class="comment">#列名称，获取得到一个列表</span></span><br><span class="line">dfname._stat_axis.values.tolist() <span class="comment"># 行名称</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="DataFrame按照某一行排序"><a href="#DataFrame按照某一行排序" class="headerlink" title="DataFrame按照某一行排序"></a>DataFrame按照某一行排序</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df2.sort_values(by=[<span class="string">'index_r'</span>])</span><br></pre></td></tr></table></figure>
 
+<h4 id="绘制水平bar图"><a href="#绘制水平bar图" class="headerlink" title="绘制水平bar图"></a>绘制水平bar图</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.barh(df[<span class="string">'Names'</span>],df[<span class="string">'index_r'</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="将数据保存到DataFrame中的方法"><a href="#将数据保存到DataFrame中的方法" class="headerlink" title="将数据保存到DataFrame中的方法"></a>将数据保存到DataFrame中的方法</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index_r = []</span><br><span class="line">index_p = []</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> names:</span><br><span class="line">    print(n,pearsonr(x, df[n]))</span><br><span class="line">    index_r.append(pearsonr(x, df[n])[<span class="number">0</span>])</span><br><span class="line">    index_p.append(pearsonr(x, df[n])[<span class="number">1</span>])</span><br><span class="line">dataset = list(zip(names,index_r,index_p))</span><br><span class="line">df2 = pd.DataFrame(data = dataset,columns=[<span class="string">'Names'</span>,<span class="string">'index_r'</span>,<span class="string">'index_p'</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="从github上读取CSV"><a href="#从github上读取CSV" class="headerlink" title="从github上读取CSV"></a>从github上读取CSV</h4><p>点击raw才可以读出来</p>
 ]]></content>
       <categories>
         <category>常用脚本</category>
