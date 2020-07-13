@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>word公式自动编号</title>
+    <url>/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/</url>
+    <content><![CDATA[<p>不需要任何插件的论文公式自动编号方法</p>
+<a id="more"></a>
+
+<h5 id="按照插入-公式的方法插入公式"><a href="#按照插入-公式的方法插入公式" class="headerlink" title="按照插入-公式的方法插入公式"></a>按照插入-公式的方法插入公式</h5><p><img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/1.png" alt></p>
+<h5 id="在公式最后加英文"><a href="#在公式最后加英文" class="headerlink" title="在公式最后加英文#()"></a>在公式最后加英文#()</h5><img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/2.png" style="zoom:50%;">
+
+<h5 id="在括号内添加：1插入-2宏-3编号-4AutoNum"><a href="#在括号内添加：1插入-2宏-3编号-4AutoNum" class="headerlink" title="在括号内添加：1插入-2宏-3编号-4AutoNum"></a>在括号内添加：1插入-2宏-3编号-4AutoNum</h5><img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/3-1.png" style="zoom:50%;">
+
+<img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/3-2.png" style="zoom:50%;">
+
+<img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/3-3.png" style="zoom:50%;">
+
+<h5 id="复制-1-在括号内最后面点击回车并删掉换行符"><a href="#复制-1-在括号内最后面点击回车并删掉换行符" class="headerlink" title="复制#(1),在括号内最后面点击回车并删掉换行符"></a>复制#(1),在括号内最后面点击回车并删掉换行符</h5><img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/4.png" style="zoom:50%;">
+
+<p>我们发现公式自动居中并且编号右对齐了。</p>
+<h5 id="粘贴-1-这时会发现编号自动变成了-2-，重复操作"><a href="#粘贴-1-这时会发现编号自动变成了-2-，重复操作" class="headerlink" title="粘贴#(1),这时会发现编号自动变成了#(2)，重复操作"></a>粘贴#(1),这时会发现编号自动变成了#(2)，重复操作</h5><img src="/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/5.png" style="zoom:50%;">
+
+<h5 id="完成！此方法支持随意插入和删除，编号会自动改变！！！"><a href="#完成！此方法支持随意插入和删除，编号会自动改变！！！" class="headerlink" title="完成！此方法支持随意插入和删除，编号会自动改变！！！"></a>完成！此方法支持随意插入和删除，编号会自动改变！！！</h5>]]></content>
+      <categories>
+        <category>论文写作</category>
+      </categories>
+  </entry>
+  <entry>
     <title>科学跑步</title>
     <url>/2020/07/01/%E7%A7%91%E5%AD%A6%E8%B7%91%E6%AD%A5/</url>
     <content><![CDATA[<p>本文总结了跑步相关的注意事项</p>
