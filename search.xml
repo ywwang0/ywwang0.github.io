@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>线性回归</title>
+    <url>/2020/07/14/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<p>线性回归的相关方法</p>
+<a id="more"></a>
+
+<h5 id="所用函数"><a href="#所用函数" class="headerlink" title="所用函数"></a>所用函数</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sklearn.linear_model.LinearRegression() <span class="comment">#所需参数</span></span><br><span class="line">- fit_intercept:</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+
+<h5 id="确定是否存在线性关系"><a href="#确定是否存在线性关系" class="headerlink" title="确定是否存在线性关系"></a>确定是否存在线性关系</h5><ul>
+<li>散点图直接观察</li>
+<li></li>
+</ul>
+<h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p>多项式回归，具有多个自变量。不同于线性回归，我们是使用曲线做回归。</p>
+<p>一元多项式和多元多项式</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建多项式特征</span></span><br><span class="line">sklearn.preprocessing.PolynomialFeatures()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h4>]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>word公式自动编号</title>
     <url>/2020/07/13/word%E5%85%AC%E5%BC%8F%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/</url>
     <content><![CDATA[<p>不需要任何插件的论文公式自动编号方法</p>
