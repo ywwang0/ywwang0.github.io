@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>预测模型评价指标</title>
+    <url>/2020/07/20/%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>决定系数R^2</title>
     <url>/2020/07/20/%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R-2/</url>
     <content><![CDATA[<p><strong>coefficient of</strong> <strong>determination</strong>决定系数$R^2$，也称判定系数，拟合优度。用来衡量回归的好坏</p>
