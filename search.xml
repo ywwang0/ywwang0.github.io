@@ -3,7 +3,17 @@
   <entry>
     <title>预测模型评价指标</title>
     <url>/2020/07/20/%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>MSE，RMSE，MAE，MARE误差分析</p>
+<a id="more"></a>
+
+<h4 id="MSE（Mean-Square-Error）均方误差"><a href="#MSE（Mean-Square-Error）均方误差" class="headerlink" title="MSE（Mean Square Error）均方误差"></a>MSE（Mean Square Error）均方误差</h4><p>$$MSE=\frac{1}{n}\sum_{i=0}^n(y_i-y_{i,pred})^2$$</p>
+<h4 id="RMSE（Root-Mean-Square-Error）均方根误差"><a href="#RMSE（Root-Mean-Square-Error）均方根误差" class="headerlink" title="RMSE（Root Mean Square Error）均方根误差"></a>RMSE（Root Mean Square Error）均方根误差</h4><p>$$RMSE=\sqrt{\frac{1}{n}\sum_{i=0}^n(y_i-y_{i,pred})^2}$$</p>
+<h4 id="MAE-Mean-absolute-error-平均绝对误差"><a href="#MAE-Mean-absolute-error-平均绝对误差" class="headerlink" title="MAE(Mean absolute error)平均绝对误差"></a>MAE(Mean absolute error)平均绝对误差</h4><p>$$MAE=\frac{1}{m}\sum_{i=0}^n|y_i-y_{i,pred}|$$</p>
+<h4 id="MARE-Mean-absolute-relative-error"><a href="#MARE-Mean-absolute-relative-error" class="headerlink" title="MARE(Mean absolute relative error)"></a>MARE(Mean absolute relative error)</h4><p>$$MARE=\frac{1}{m}\sum_{i=0}^n|\frac{y_i-y_{i,pred}}{y_i}|$$</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
   </entry>
   <entry>
     <title>决定系数R^2</title>
