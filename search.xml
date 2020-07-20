@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>决定系数R^2</title>
+    <url>/2020/07/20/%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R-2/</url>
+    <content><![CDATA[<p><strong>coefficient of</strong> <strong>determination</strong>决定系数$R^2$，也称判定系数，拟合优度。用来衡量回归的好坏</p>
+<a id="more"></a>
+
+<h4 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h4><p>设y为真实的数据，其平均值为$ \bar y$，拟合值(预测值)为$ \hat y$</p>
+<p>总平方和（SST）：$\sum_{i=0}^n(y_i-\bar y)^2$<br>回归平方和（SSR）：$\sum_{i=0}^n(\hat y_i-\bar y)^2$<br>残差平方和（SSE）：$\sum_{i=0}^n(y_i-\hat y)^2$</p>
+<p>由于关系式：SST=SSR+SSE，所以决定系数：</p>
+<p>$$R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}=1-\frac{\sum_{i=0}^n(y_i-\hat y)^2}{\sum_{i=0}^n(y_i-\bar y)^2}$$</p>
+<p>决定系数越大表拟合优度越好!</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>线性回归</title>
     <url>/2020/07/14/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
     <content><![CDATA[<p>线性回归的相关方法</p>
