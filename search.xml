@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>课程大纲</title>
+    <url>/2020/08/08/%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2md/</url>
+    <content><![CDATA[<h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><ol>
+<li>Numpy（矩阵运算）</li>
+<li>Pandas（数据分析处理）</li>
+<li>Matplotlib（基本画图库）</li>
+<li>Seaborn（适用于复杂图的画图库）</li>
+<li>回归算法</li>
+<li>决策树</li>
+<li>贝叶斯算法</li>
+<li>支持向量机</li>
+<li>神经网络</li>
+<li>Xgboost集成算法</li>
+<li>自然语言处理向量模型</li>
+<li>K近邻与聚类</li>
+<li>PCA降维与SVD矩阵分解</li>
+<li>scikit-learn模型建立与评估</li>
+<li>Python库分析科比生涯数据</li>
+<li>机器学习实战-泰坦尼克号船员获救（二分类问题）</li>
+<li>机器学习实战-交易数据异常（数据样本不均衡，模型评估标准）</li>
+<li>实用Gensim库构造中文维基百度</li>
+<li>机器学习项目实战-贷款申请最大</li>
+<li>机器学习项目实战-用户流失预警</li>
+<li>探索性数据分析（EDA）-足球赛事数据集</li>
+<li>探索性数据分析（EDA）-农粮组织数据集</li>
+<li>机器学习项目实战-HTTP日志</li>
+</ol>
+]]></content>
+      <categories>
+        <category>python数据分析与机器学习实战-唐宇迪</category>
+      </categories>
+  </entry>
+  <entry>
     <title>python合并pdf文件</title>
     <url>/2020/08/08/python%E5%90%88%E5%B9%B6pdf%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<p>本文包括python合并pdf相关脚本</p>
