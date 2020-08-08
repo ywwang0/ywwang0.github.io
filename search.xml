@@ -3,7 +3,12 @@
   <entry>
     <title>0_python入门基本准备</title>
     <url>/2020/08/08/0_python%E5%85%A5%E9%97%A8%E5%9F%BA%E6%9C%AC%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h3 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h3><ul>
+<li>一门能让程序从数据中学习的计算机科学</li>
+<li>机器学习让计算机写函数（台大李宏毅）</li>
+</ul>
+<h3 id="Anaconda安装python环境"><a href="#Anaconda安装python环境" class="headerlink" title="Anaconda安装python环境"></a>Anaconda安装python环境</h3><p>学习到P7</p>
+]]></content>
       <categories>
         <category>python数据分析与机器学习实战-唐宇迪</category>
       </categories>
@@ -11,7 +16,11 @@
   <entry>
     <title>课程大纲</title>
     <url>/2020/08/08/%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2md/</url>
-    <content><![CDATA[<h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><ol>
+    <content><![CDATA[<p>本文包括唐宇迪python数据分析与机器学习实战目录</p>
+<a id="more"></a>
+
+<h3 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h3><p><a href="https://www.bilibili.com/video/BV1gb411h7nn?from=search&seid=7630101371083347922" target="_blank" rel="noopener">【唐宇迪】Python数据分析与机器学习实战</a></p>
+<ol>
 <li>Numpy（矩阵运算）</li>
 <li>Pandas（数据分析处理）</li>
 <li>Matplotlib（基本画图库）</li>
