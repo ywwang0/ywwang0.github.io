@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>IamD课题组打印机配置</title>
+    <url>/2020/08/12/IamD%E8%AF%BE%E9%A2%98%E7%BB%84%E6%89%93%E5%8D%B0%E6%9C%BA%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>本文内含课题组打印机配置方法</p>
+<a id="more"></a>
+
+<h4 id="打印机的连接"><a href="#打印机的连接" class="headerlink" title="打印机的连接"></a>打印机的连接</h4><p>当前打印机通过 NAS 连入局域网，因此使用打印机也需要网线接入局域网，即需要插有线网。</p>
+<p>打印机型号：<code>Fuji Xerox DocuPrint P268 dw</code></p>
+<h4 id="Windows连接打印机"><a href="#Windows连接打印机" class="headerlink" title="Windows连接打印机"></a>Windows连接打印机</h4><p>首先在官方网站安装好打印机驱动</p>
+<blockquote>
+<p>Win10 驱动直接下载链接 (Apr.18.2019):</p>
+<p><a href="http://onlinesupport.fujixerox.com//driver_downloads/fxdm228_268pcl6150320wxpcizh.zip" target="_blank" rel="noopener">http://onlinesupport.fujixerox.com//driver_downloads/fxdm228_268pcl6150320wxpcizh.zip</a></p>
+</blockquote>
+<p>装好驱动后，参考 <a href="https://www.synology.com/zh-cn/knowledgebase/DSM/help/DSM/AdminCenter/system_externaldevice_printer" target="_blank" rel="noopener">打印机 - 外接设备| Synology群晖科技官网</a> 类型 2.LPR Port 进行设置。</p>
+<p>注意在添加打印机的时候要选择共享打印机，按照TCP/IP无法添加。（Aug.11.2020 唐师姐踩坑）</p>
+<img src="/2020/08/12/IamD%E8%AF%BE%E9%A2%98%E7%BB%84%E6%89%93%E5%8D%B0%E6%9C%BA%E9%85%8D%E7%BD%AE/printer.png" style="zoom:50%;">]]></content>
+      <categories>
+        <category>杂学杂记</category>
+      </categories>
+  </entry>
+  <entry>
     <title>0_python入门基本准备</title>
     <url>/2020/08/08/0_python%E5%85%A5%E9%97%A8%E5%9F%BA%E6%9C%AC%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<h3 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h3><ul>
