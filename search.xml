@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>VASP中的赝势</title>
+    <url>/2020/08/18/VASP%E4%B8%AD%E7%9A%84%E8%B5%9D%E5%8A%BF/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h4 id="综述关系"><a href="#综述关系" class="headerlink" title="综述关系"></a>综述关系</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">赝势--&gt;模守恒赝势</span><br><span class="line">赝势--&gt;PAW投影缀加平面波</span><br><span class="line">赝势--&gt;USPP超软赝势</span><br><span class="line">PAW投影缀加平面波--&gt;LDA:局域密度泛函</span><br><span class="line">PAW投影缀加平面波--&gt;GGA:广义梯度泛函</span><br><span class="line">PAW投影缀加平面波--&gt;杂化泛函</span><br><span class="line">GGA:广义梯度泛函--&gt;PBE</span><br><span class="line">GGA:广义梯度泛函--&gt;PW91:一般不用</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>This work is based on the density functional theory (DFT) calculations performed by using the Vienna ab initio Simulation Package (VASP) software. The interaction between ion cores and valence electrons described by the projector augmented wave (PAW) method34. The generalized gradient approximation (GGA)35 in the form of Perdew–Burke–Ernzerhof (PBE) exchange functional36 was used to solve the quantum states of electron. The plane-wave energy cutoff is set to 500 eV. The Monkhorst–Pack method37 with 1 × 1 × 2 k-point mesh is employed for the Brillouin zone sampling of the super lattice. The convergence criteria of energy and force are set to 10−5 eV/atom and 0.01 eV/Å, respectively. The anion charges of lithium compounds were calculated by using the Atoms in Molecules method (Bader charge analysis)38. The energy variations and migration barriers of lithium ion migration in fcc-type anion sublattices with 48 anions (Supplementary Fig. 3) are calculated by the nudged elastic band (NEB) method39,40. The anion charges are changed by the uniform background charge of the sublattice system. Only the one migrating lithium ion is allowed to relax, while the other anions are fixed in their initial positions, and this method can be also found in Ceder’s work8 .</p>
+</blockquote>
+<p>文章中引用的时候需要五篇：DFT，PAW，GGA，PBE，VASP</p>
+<h4 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h4><p>vasp计算中用到的三种赝势：模守恒赝势，超软赝势，PAW赝势(按产生顺序)。</p>
+<p>按方法不同分为USPP（ultrasoft pesudopotential，超软赝势）和PAW（projector augmented wave，投影缀加平面波），两种方法都可以相当程度地减少过渡金属或第一行元素的每个原子所必需的平面波数量。</p>
+<p>按交换关联函数不同分为LDA（local density approximation，局域密度近似）和GGA（generalized-gradient approximation，广义梯度近似），GGA又分为PW91（Perdew -Wang 91）和PBE（Perdew-Burke-Ernzerhof）。</p>
+<p>求解K-S方程时电子之间的交换关联泛函取局域密度泛函LDA（Rc处电子结构当成是密度相同的均匀电子气体来算）。</p>
+<p>广义梯度泛函GGA（考虑了密度的梯度变化），但泛函的不同也会引起贋势的不同。</p>
+<ul>
+<li>paw文件夹：PAW-LDA</li>
+<li>paw_gga文件夹：PAW-GGA-PW91</li>
+<li>paw_pbe文件夹：PAW-GGA-PBE</li>
+<li>pot文件夹：USPP-LDA</li>
+<li>pot_GGA文件夹：USPP-GGA</li>
+</ul>
+<p>选择某个目录进去，我们还会发现对应每种元素往往还会有多种赝势存在。这是因为根据ENMAX的大小还可以分为 Ga,Ga_s（soft）,Ga_h，或者根据处理半芯态的不同还可以分为Ga,Ga_sv（s电子作为半芯态）,Ga_pv的不同。</p>
+<p>对于化合物（不同原子半径的元素混合）来说，PAW赝势比超软赝势精确度高。</p>
+<p>US型赝势所需截至能较小，计算速度快，PAW赝势截至能通常较大，而且考虑的电子数多，计算慢，但精确度高。</p>
+<p>在做具体的计算之前，针对需要计算的性质选取不同的贋势做下测试。对于不同贋势得到的结果，关注其最终的能量差，而不是绝对能量。</p>
+]]></content>
+      <categories>
+        <category>VASP</category>
+      </categories>
+  </entry>
+  <entry>
     <title>顺时针打印矩阵（剑指offer29）</title>
     <url>/2020/08/17/%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</url>
     <content><![CDATA[<a id="more"></a>
@@ -587,7 +621,10 @@
 <li>Vs-code 文本编辑</li>
 <li>Material studio</li>
 <li>P4-vasp</li>
-<li>Vesta</li>
+<li>Vesta(原子结构可视化软件)</li>
+<li>ATOM(文本编辑软件)</li>
+<li>notepad++(文本编辑软件)</li>
+<li>Putty(Win下远程登录软件)</li>
 </ol>
 <h4 id="输入文件简介"><a href="#输入文件简介" class="headerlink" title="输入文件简介"></a>输入文件简介</h4><p><strong>INCAR：</strong>告诉VASP算什么，怎么算</p>
 <p>金属ISMEAR=1，分子，半导体和绝缘体ISMEAR=0。在DOS能带计算中， 使用ISMEAR = -5 用于获取精确的信息。 SIGMA一般取0.10 或者采用默认值 0.20 即可。 当ISMEAR=-5时，SIGMA的值可以忽略。分子原子体系，SIGMA=0.01。SIGMA的测试标准是：<code>grep &#39;entropy T&#39; OUTCAR</code>/体系原子数目 &lt; 0.001即可。</p>
