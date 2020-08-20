@@ -157,6 +157,303 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/Numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/16/Numpy/" class="post-title-link" itemprop="url">Numpy</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-16 18:00:00" itemprop="dateCreated datePublished" datetime="2020-03-16T18:00:00+08:00">2020-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-31 20:53:40" itemprop="dateModified" datetime="2020-03-31T20:53:40+08:00">2020-03-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">Python基础语法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h3 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h3><ul>
+<li>强大的N维数组对象：ndarray</li>
+<li>线性代数，傅立叶变换的功能</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>相对于python列表的<strong>优点</strong>：可以直接对数组为对象进行运算</li>
+<li>用numpy生成以为数组,使得以为向量更像单个数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([1,2,3,4,5])</span><br></pre></td></tr></table></figure>
+
+<h3 id="N维数组对象-ndarray"><a href="#N维数组对象-ndarray" class="headerlink" title="N维数组对象-ndarray"></a>N维数组对象-ndarray</h3><p>ndarray是一个多维数组对象，由两部分构成：</p>
+<pre><code>-  实际的数据
+-  描述这些数据的元数据（数据维度、数据类型等）</code></pre><p>轴(axis): 保存数据的维度；秩(rank)：轴的数量</p>
+<p>ndarray对象的属性</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.ndim</td>
+<td align="center">秩，即轴的数量或维度的数量</td>
+</tr>
+<tr>
+<td align="center">.shape</td>
+<td align="center">ndarray对象的尺度，对于矩阵，n行m列</td>
+</tr>
+<tr>
+<td align="center">.size</td>
+<td align="center">ndarray对象元素的个数，相当于.shape中n*m的值</td>
+</tr>
+<tr>
+<td align="center">.dtype</td>
+<td align="center">ndarray对象的元素类型</td>
+</tr>
+<tr>
+<td align="center">.itemsize</td>
+<td align="center">ndarray对象中每个元素的大小，以字节为单位</td>
+</tr>
+</tbody></table>
+<h3 id="ndarray数组的创建方法"><a href="#ndarray数组的创建方法" class="headerlink" title="ndarray数组的创建方法"></a>ndarray数组的创建方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; np.array(list&#x2F;tuple, dtype&#x3D;np.float32)</span><br></pre></td></tr></table></figure>
+
+<p>常用函数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">np.arange(n)</td>
+<td align="center">类似range()函数，返回ndarray类型，元素从0到n‐1(整数类型)</td>
+</tr>
+<tr>
+<td align="center">np.ones(shape)</td>
+<td align="center">根据shape生成一个全1数组，shape是元组类型</td>
+</tr>
+<tr>
+<td align="center">np.zeros(shape)</td>
+<td align="center">根据shape生成一个全0数组，shape是元组类型</td>
+</tr>
+<tr>
+<td align="center">np.full(shape,val)</td>
+<td align="center">根据shape生成一个数组，每个元素值都是val</td>
+</tr>
+<tr>
+<td align="center">np.eye(n)</td>
+<td align="center">创建一个正方的n*n单位矩阵，对角线为1，其余为0</td>
+</tr>
+<tr>
+<td align="center">np.ones_like(a)</td>
+<td align="center">根据数组a的形状生成一个全1数组</td>
+</tr>
+<tr>
+<td align="center">np.zeros_like(a)</td>
+<td align="center">根据数组a的形状生成一个全0数组</td>
+</tr>
+<tr>
+<td align="center">np.full_like(a,val)</td>
+<td align="center">根据数组a的形状生成一个数组，每个元素值都是val</td>
+</tr>
+<tr>
+<td align="center">np.linspace()</td>
+<td align="center">根据起止数据等间距地填充数据，形成数组</td>
+</tr>
+<tr>
+<td align="center">np.concatenate()</td>
+<td align="center">将两个或多个数组合并成一个新的数组</td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong>np.linspace(1,10,4,endpoint = False)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(1,10,4,endpoint &#x3D; False)</span><br><span class="line">&gt;&gt;&gt; array([1., 3.25, 5.5, 7.75])</span><br></pre></td></tr></table></figure>
+
+<h3 id="纬度变换"><a href="#纬度变换" class="headerlink" title="纬度变换"></a>纬度变换</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.reshape(shape)</td>
+<td>不改变数组元素，返回一个shape形状的数组，原数组不变</td>
+</tr>
+<tr>
+<td>.resize(shape)</td>
+<td>与.reshape()功能一致，但修改原数组</td>
+</tr>
+<tr>
+<td>.swapaxes(ax1,ax2)</td>
+<td>将数组n个维度中两个维度进行调换</td>
+</tr>
+<tr>
+<td>.flatten()</td>
+<td>对数组进行降维，返回折叠后的一维数组，原数组不变</td>
+</tr>
+<tr>
+<td>.astype(np.float)</td>
+<td>astype()方法一定会创建新的数组（原始数据的一个拷贝）</td>
+</tr>
+<tr>
+<td>.tolist()</td>
+<td>转换为列表</td>
+</tr>
+</tbody></table>
+<h3 id="数组的索引和切片"><a href="#数组的索引和切片" class="headerlink" title="数组的索引和切片"></a>数组的索引和切片</h3><p>a[:, 1, 3] 不关心第一个维度，覆盖所有元素</p>
+<p>a[:, :, ::2] 不关心第一个和第二个维度，第三个维度选取一半</p>
+<h3 id="NumPy一元函数"><a href="#NumPy一元函数" class="headerlink" title="NumPy一元函数"></a>NumPy一元函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.abs(x) or np.fabs(x)</td>
+<td>各元素的绝对值</td>
+</tr>
+<tr>
+<td>np.sqrt(x)</td>
+<td>各元素的平方根</td>
+</tr>
+<tr>
+<td>np.square(x)</td>
+<td>各元素的平方</td>
+</tr>
+<tr>
+<td>np.log(x) np.log10(x) np.log2(x)</td>
+<td>自然对数、10底对数和2底对数</td>
+</tr>
+<tr>
+<td>np.ceil(x) np.floor(x)</td>
+<td>向上舍，向下舍整数值</td>
+</tr>
+<tr>
+<td>np.rint(x)</td>
+<td>计算数组各元素的四舍五入值</td>
+</tr>
+<tr>
+<td>np.modf(x)</td>
+<td>将各元素的小数和整数部分以两个独立数组返回</td>
+</tr>
+<tr>
+<td>np.exp(x)</td>
+<td>各元素的指数值</td>
+</tr>
+<tr>
+<td>np.cos(x)｜np.cosh(x)｜np.sin(x) ｜np.sinh(x)｜np.tan(x)｜np.tanh(x)</td>
+<td>普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>a .mean()</td>
+<td>平均值</td>
+</tr>
+</tbody></table>
+<h3 id="NumPy二元函数"><a href="#NumPy二元函数" class="headerlink" title="NumPy二元函数"></a>NumPy二元函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+ ‐ * / **</td>
+<td align="center">两个数组各元素进行对应运算</td>
+</tr>
+<tr>
+<td align="center">np.maximum(x,y) np.fmax() np.minimum(x,y) np.fmin()</td>
+<td align="center">元素级的最大值/最小值计算</td>
+</tr>
+<tr>
+<td align="center">np.mod(x,y)</td>
+<td align="center">元素级的模运算</td>
+</tr>
+<tr>
+<td align="center">np.copysign(x,y)</td>
+<td align="center">将数组y中各元素值的符号赋值给数组x对应元素</td>
+</tr>
+<tr>
+<td align="center">&gt; &lt; &gt;= &lt;= == !=</td>
+<td align="center">算术比较，产生布尔型数组</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/Markdown%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -466,14 +763,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -518,7 +815,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">78k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
