@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>过渡态计算</title>
+    <url>/2020/08/24/%E8%BF%87%E6%B8%A1%E6%80%81%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p>1.建立两个名为begin和end的文件夹（名字随意，代表过度态的初始和结束状态），进行结构优化。</p>
+<p>2.在平行于begin文件夹的目录下输入：</p>
+<p><code>nebmake.pl begin/CONTCAR  end/CONTCAR  7</code></p>
+<p>这行命令的意思是：利用nebmake脚本，以begin文件夹下的CONTCAR为初始结构，end文件夹下的CONTCAR为末态结构，在这个过度态过程中插入7个点。</p>
+<p>3.将begin或end文件夹下的OUTCAR复制到00和08中，KPOINTS和POTCATR复制到00-08中。INCAR需要加入四个VASP相关的计算参数。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">LCLIMB = .TRUE.</span><br><span class="line">IMAGES = 7</span><br><span class="line">SPRING = -5.0</span><br><span class="line">ICHAIN = 0</span><br></pre></td></tr></table></figure>
+
+<p>4.提交任务</p>
+<p><code>sbatch -N 7 vasp_neb.slurm</code></p>
+<p>5.结果处理脚本:</p>
+<p><code>nebresultsrev.pl</code></p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
     <title>华为20200819电池组面试</title>
     <url>/2020/08/19/%E5%8D%8E%E4%B8%BA20200819%E7%94%B5%E6%B1%A0%E7%BB%84%E9%9D%A2%E8%AF%95/</url>
     <content><![CDATA[<p>上传几道陈荣汉的考试题</p>
