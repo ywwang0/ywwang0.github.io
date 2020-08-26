@@ -3,7 +3,10 @@
   <entry>
     <title>zotero快速复制引文</title>
     <url>/2020/08/26/zotero%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E5%BC%95%E6%96%87/</url>
-    <content><![CDATA[<p>选中zotero的任意一个文献，按command+shift+C (windows系统下：ctrl+shift+C), 再转到想插入文献的地方，按command+V, 就粘贴完成了，默认格式在首选项-导出里面设置</p>
+    <content><![CDATA[<p>zetero技巧</p>
+<a id="more"></a>
+
+<p>选中zotero的任意一个文献，按command+shift+C (windows系统下：ctrl+shift+C), 再转到想插入文献的地方，按command+V, 就粘贴完成了，默认格式在首选项-导出里面设置</p>
 <p>若想在PPT当中插入引用，这时候只需按command+shift+A, 再转到PPT中command+V进行粘贴即可</p>
 ]]></content>
       <categories>
@@ -13,7 +16,8 @@
   <entry>
     <title>过渡态计算</title>
     <url>/2020/08/24/%E8%BF%87%E6%B8%A1%E6%80%81%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>过渡态计算</p>
+<a id="more"></a>
 
 <p>1.建立两个名为begin和end的文件夹（名字随意，代表过度态的初始和结束状态），进行结构优化。</p>
 <p>2.在平行于begin文件夹的目录下输入：</p>

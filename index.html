@@ -182,7 +182,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-26 11:23:48 / 修改时间：11:27:58" itemprop="dateCreated datePublished" datetime="2020-08-26T11:23:48+08:00">2020-08-26</time>
+              <time title="创建时间：2020-08-26 11:23:48 / 修改时间：15:37:10" itemprop="dateCreated datePublished" datetime="2020-08-26T11:23:48+08:00">2020-08-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,7 +200,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>160</span>
+              <span>168</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -219,9 +219,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>选中zotero的任意一个文献，按command+shift+C (windows系统下：ctrl+shift+C), 再转到想插入文献的地方，按command+V, 就粘贴完成了，默认格式在首选项-导出里面设置</p>
-<p>若想在PPT当中插入引用，这时候只需按command+shift+A, 再转到PPT中command+V进行粘贴即可</p>
-
+          <p>zetero技巧</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/26/zotero%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E5%BC%95%E6%96%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -263,10 +269,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-24 19:45:52 / 修改时间：19:50:48" itemprop="dateCreated datePublished" datetime="2020-08-24T19:45:52+08:00">2020-08-24</time>
+              <time title="创建时间：2020-08-24 19:45:52" itemprop="dateCreated datePublished" datetime="2020-08-24T19:45:52+08:00">2020-08-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-26 15:36:55" itemprop="dateModified" datetime="2020-08-26T15:36:55+08:00">2020-08-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -283,7 +295,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>365</span>
+              <span>370</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,20 +314,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<p>1.建立两个名为begin和end的文件夹（名字随意，代表过度态的初始和结束状态），进行结构优化。</p>
-<p>2.在平行于begin文件夹的目录下输入：</p>
-<p><code>nebmake.pl begin/CONTCAR  end/CONTCAR  7</code></p>
-<p>这行命令的意思是：利用nebmake脚本，以begin文件夹下的CONTCAR为初始结构，end文件夹下的CONTCAR为末态结构，在这个过度态过程中插入7个点。</p>
-<p>3.将begin或end文件夹下的OUTCAR复制到00和08中，KPOINTS和POTCATR复制到00-08中。INCAR需要加入四个VASP相关的计算参数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LCLIMB = .TRUE.</span><br><span class="line">IMAGES = 7</span><br><span class="line">SPRING = -5.0</span><br><span class="line">ICHAIN = 0</span><br></pre></td></tr></table></figure>
-
-<p>4.提交任务</p>
-<p><code>sbatch -N 7 vasp_neb.slurm</code></p>
-<p>5.结果处理脚本:</p>
-<p><code>nebresultsrev.pl</code></p>
-
+          <p>过渡态计算</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/24/%E8%BF%87%E6%B8%A1%E6%80%81%E8%AE%A1%E7%AE%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
