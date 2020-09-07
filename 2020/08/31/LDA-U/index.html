@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="基本概念梳理 $E_o$, the standard equilibrium potential (or standard electrode potential), is defined as the equilibrium potential of an electrode reaction when all components are in their standard states,">
+  <meta name="description" content="加U体系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="能斯特方程">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/Nernst-equation/index.html">
+<meta property="og:title" content="LDA+U">
+<meta property="og:url" content="http://yoursite.com/2020/08/31/LDA-U/index.html">
 <meta property="og:site_name" content="计算材料学">
-<meta property="og:description" content="基本概念梳理 $E_o$, the standard equilibrium potential (or standard electrode potential), is defined as the equilibrium potential of an electrode reaction when all components are in their standard states,">
+<meta property="og:description" content="加U体系">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T00:36:17.000Z">
-<meta property="article:modified_time" content="2020-03-31T12:53:26.279Z">
+<meta property="article:published_time" content="2020-08-31T04:00:09.000Z">
+<meta property="article:modified_time" content="2020-08-31T04:08:35.217Z">
 <meta property="article:author" content="Yaowei Wang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/23/Nernst-equation/">
+<link rel="canonical" href="http://yoursite.com/2020/08/31/LDA-U/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>能斯特方程 | 计算材料学</title>
+  <title>LDA+U | 计算材料学</title>
   
 
 
@@ -161,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/Nernst-equation/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/31/LDA-U/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/photo.jpeg">
@@ -174,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          能斯特方程
+          LDA+U
         </h1>
 
         <div class="post-meta">
@@ -183,23 +183,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-23 08:36:17" itemprop="dateCreated datePublished" datetime="2020-03-23T08:36:17+08:00">2020-03-23</time>
+              <time title="创建时间：2020-08-31 12:00:09 / 修改时间：12:08:35" itemprop="dateCreated datePublished" datetime="2020-08-31T12:00:09+08:00">2020-08-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-31 20:53:26" itemprop="dateModified" datetime="2020-03-31T20:53:26+08:00">2020-03-31</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%85%90%E8%9A%80%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">腐蚀科学</span></a>
+                  <a href="/categories/VASP/" itemprop="url" rel="index"><span itemprop="name">VASP</span></a>
                 </span>
             </span>
 
@@ -209,14 +203,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -228,104 +222,367 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
+        <p>加U体系</p>
+<a id="more"></a>
 
-<h3 id="基本概念梳理"><a href="#基本概念梳理" class="headerlink" title="基本概念梳理"></a>基本概念梳理</h3><ul>
-<li><em>$E_o$</em>, the <strong>standard equilibrium potential</strong> (or standard electrode potential), is defined as the equilibrium potential of an electrode reaction when all components are in their standard states, measured against the standard hydrogen electrode (SHE).</li>
-</ul>
-<blockquote>
-<p>标准电极电位是反应处在标准状态下(298K,所有离子的浓度都是1mol/L)，的平衡电位，其数值可在标准电位表中查出，也可以根据热力学上的数据自行运算。</p>
-</blockquote>
-<p>eg：在腐蚀电化学原理(曹楚南)一书中，常见金属相对于H电极的标准平衡电位是：</p>
+<p>在平均场近似或者说是一般得LDA计算中，能带得自旋分裂是由一个称为Stoner 参数I来主导得，而且平均场近似中认为这个交换分裂能是小于带宽得，一般而言I得数值在LSDA中大概在1eV左右，这样即使对于某些氧化物如 NiO，FeO，MnO等即使能带发生交换分裂，整个体系依然是金属性得，试验观察到得这些氧化物实际上是绝缘体，主要原因在于在这些氧化物中d轨道得能级位置不是由I来决定得，而是Hubbard参数U决定，U也称为On－site Coulomb作用能，相当于把两个电子放在空间同一个位置需要得能量，U数值一般在10eV左右，如此大得分裂能足以将Fermi面附近连续分布得d能级分开，从而得到正确得基态性质，目前广泛采用得LDA＋U的算法就是针对某些定域轨道，如d或者f，这些轨道占据存在强烈的在位Coulomb排斥。正是U使得带隙分裂，而不是轨道极化参量I。<br>U计算目前仍然是一个研究热点，最近由人采用线性响应理论，同时结合轨道束缚的DFT计算自洽的求解了部分体系的U参数，在大部分情况下U数值要根据计算结果和试验参数的符合程度而定。<br>LDA＋U计算核心思路是：首先将研究体系的轨道分隔成两个子体系（subsystem），其中一部分是一般的DFT算法（如LSDA，GGA）等可以比较准确描述的体系，另外是定域在原子周围的轨道如d或者f轨道，这些轨道在标准的DFT计算下不能获得正确的能量与占据数之间的关系（如DFT总是认为分数占据是能量最小的，而不是整数占据）；对于d或者f轨道，能带模型采用Hubbard模型，而其他轨道仍然是按照Kohn－SHam方程求解；d以及f 轨道电子之间的关联能采用一个和轨道占据以及自旋相关的有效U表示；整体计算的时候需要将原来DFT计算过程中已经包含的部分关联能扣除，这部分一般叫 Double Counting part，并且用一个新的U来表示，最终的结果是在DFT计算的基础上新增加一个和d或者f轨道直接相关的分裂势的微扰项，这部分能量可以采用一般微扰理论计算。<br>在CASTEP最新的版本中增加的LDA＋U的计算，U参数的设置一般主要是针对过渡金属氧化物（Charge transfer type insulator），包含非满层f轨道的元素等，高温超导体强关联体系。在参数设置方面主要是需要注意d和f轨道，至于s以及p轨道一般不需要设置，当然由文献也报道p轨道的这种关联性。过渡金属氧化物的有效U如下：</p>
 <table>
 <thead>
 <tr>
-<th align="center">反应</th>
-<th align="center">SHE(V)</th>
+<th align="center">Species</th>
+<th>U</th>
+<th>J</th>
+<th align="center">U-J（UEff）</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">$Li$=$Li^+$+$e^-$</td>
-<td align="center">-3.024</td>
+<td align="center">NiO</td>
+<td>8.0</td>
+<td>0.95</td>
+<td align="center">7.1</td>
 </tr>
 <tr>
-<td align="center">Ca=Ca^2+^+2e^-^</td>
-<td align="center">-2.87</td>
+<td align="center">CoO</td>
+<td>7.8</td>
+<td>0.92</td>
+<td align="center">6.9</td>
 </tr>
 <tr>
-<td align="center">Mg=Mg^2+^+2e^-^</td>
-<td align="center">-2.34</td>
+<td align="center">FeO</td>
+<td>6.8</td>
+<td>0.89</td>
+<td align="center">5.9</td>
 </tr>
 <tr>
-<td align="center">Al=Al^3+^+3e^-^</td>
-<td align="center">-1.67</td>
+<td align="center">MnO</td>
+<td>6.9</td>
+<td>0.86</td>
+<td align="center">10.3</td>
 </tr>
 <tr>
-<td align="center">Zn=Zn^2+^+2e^-^</td>
-<td align="center">-0.762</td>
+<td align="center">VO</td>
+<td>6.7</td>
+<td>0.81</td>
+<td align="center">5.9</td>
+</tr>
+<tr>
+<td align="center">TiO</td>
+<td>6.6</td>
+<td>0.78</td>
+<td align="center">5.8</td>
 </tr>
 </tbody></table>
-<p>自己计算的方法如下，首先在<a href="https://job-stiftung.de/index.php?id=63" target="_blank" rel="noopener">德国爱德华久保热力学和物质动力学基金会</a>找到对应离子的化学势；</p>
-<blockquote>
-<p>网站的数据遵循标准：(1)在标准状态下 (T = 298 K, p = 101,3 kPa)，(2)在溶液标准浓度下 (1000 mol/m3)，(3)处于理想状态下，没有分子间相互作用的气体或溶解物质，(4)由元素的天然同位素组成的所有物质。</p>
-<p>单位μ代表kJ/mol，1 eV/atom = 96.49 kJ/mol，网站中“,”代表小数点</p>
-</blockquote>
+<p>Reference: Band theory and Mott insulators: Hubbard U insteat of Stoner I, PRB Vol44 No 3 (1991);<br>3d轨道U和J计算如下所示：主要原理是改变d轨道的占据，在自旋极化的前提下计算不同自旋轨道能量的差值提取U和J，U微Coulomb排斥能，J是交换能，U在所有电子中都存在，不管自旋是否相同，J只存在于自旋相同的电子上。<br>下面给出过渡金属（不包括稀土元素）U和J参数的选取(uint in Ry,1Ry=13.6eV)：</p>
+<p>3d series:<br>Elements    U         J<br>V         0.25       0.05<br>Cr         0.26       0.053<br>Mn         0.28       0.055<br>Fe         0.3         0.058<br>Co         0.31       0.059<br>Ni           0.31       0.06<br>4d series:<br>Elements    U           J<br>Nb           0.19       0.04<br>Mo           0.2         0.04<br>Tc           0.21       0.042<br>Ru           0.22       0.042<br>Rh           0.25       0.044<br>Pd           0.29       0.044<br>5d series:<br>Elements      U          J<br>Ta           0.19       0.039<br>W          0.20       0.038<br>Re           0.205        0.039<br>Os           0.2         0.039<br>Ir            0.21       0.038<br>Pt          0.215        0.038<br>对于其他过渡金属化合物U一般在5－10eV之间。如在PRB73，134418（2006）这个文献中作者在计算Co掺杂的ZnO时采用的U是6和 8eV。过渡金属的U数值和d电子排列以及价态有关系，因此上面给出的数值只是一个大概的估算数值，具体文献见Physical Review B Vol50,No23,1994.<br>LDA+U 算法主要原创作者是俄罗斯金属研究所的V.I. Anisimov，重要文献有：<br>Corrected atomic limit in the local density approximation and the electronic structure of d impurities in Rb, Phys.Rev.B 50,23 (1994）；<br>Band theory and Mott insulators: Hubbard U instead of Stoner I, Phys.Rev.B. 44 No.3 (1991);<br>Materials Studio 4.3版本中也给出了一些元素默认的U数值（实际是Ueff＝U－J）：</p>
 <table>
 <thead>
 <tr>
-<th align="center">元素</th>
-<th align="center">网站数据(μ)</th>
-<th align="center">ev/atom</th>
-<th align="center">计算平衡电位</th>
+<th>Element Name</th>
+<th>Atomic number</th>
+<th>Angular Momentum</th>
+<th>Hubbard U</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">Li^+^</td>
-<td align="center">-293.80</td>
-<td align="center">-3.0449</td>
-<td align="center">-3.0449</td>
+<td>Sc</td>
+<td>21</td>
+<td>d</td>
+<td>2.5 eV</td>
 </tr>
 <tr>
-<td align="center">Ca^2+^</td>
-<td align="center">-553.04</td>
-<td align="center">-5.7316</td>
-<td align="center">-2.8658</td>
+<td>Ti</td>
+<td>22</td>
+<td>d</td>
+<td>2.5 eV</td>
 </tr>
 <tr>
-<td align="center">Mg^2+^</td>
-<td align="center">-456.01</td>
-<td align="center">4.726</td>
-<td align="center">-2.363</td>
+<td>V</td>
+<td>23</td>
+<td>d</td>
+<td>2.5 eV</td>
 </tr>
 <tr>
-<td align="center">Al^3+^</td>
-<td align="center">-485.34</td>
-<td align="center">-5.03</td>
-<td align="center">-1.6767</td>
+<td>Cr</td>
+<td>24</td>
+<td>d</td>
+<td>2.5 eV</td>
 </tr>
 <tr>
-<td align="center">Zn^2+^</td>
-<td align="center">-147.03</td>
-<td align="center">-1.5238</td>
-<td align="center">-0.7619</td>
+<td>Mn</td>
+<td>25</td>
+<td>d</td>
+<td>2.5 eV</td>
+</tr>
+<tr>
+<td>Fe</td>
+<td>26</td>
+<td>d</td>
+<td>2.5 eV</td>
+</tr>
+<tr>
+<td>Co</td>
+<td>27</td>
+<td>d</td>
+<td>2.5 eV</td>
+</tr>
+<tr>
+<td>Ni</td>
+<td>28</td>
+<td>d</td>
+<td>2.5 eV</td>
+</tr>
+<tr>
+<td>Cu</td>
+<td>29</td>
+<td>d</td>
+<td>2.5 eV</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>39</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Zr</td>
+<td>40</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Nb</td>
+<td>41</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Mo</td>
+<td>42</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Tc</td>
+<td>43</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Ru</td>
+<td>44</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Rh</td>
+<td>45</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Pd</td>
+<td>46</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Ag</td>
+<td>47</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Cd</td>
+<td>48</td>
+<td>d</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>La</td>
+<td>57</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Ce</td>
+<td>58</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Pr</td>
+<td>59</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Nd</td>
+<td>60</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Pm</td>
+<td>61</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Sm</td>
+<td>62</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Eu</td>
+<td>63</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Gd</td>
+<td>64</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Tb</td>
+<td>65</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Dy</td>
+<td>66</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Ho</td>
+<td>67</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Er</td>
+<td>68</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Tm</td>
+<td>69</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Yb</td>
+<td>70</td>
+<td>f</td>
+<td>6.0 eV</td>
+</tr>
+<tr>
+<td>Fr</td>
+<td>87</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Ra</td>
+<td>88</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Ac</td>
+<td>89</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Th</td>
+<td>90</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Pa</td>
+<td>91</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>U</td>
+<td>92</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Np</td>
+<td>93</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Pu</td>
+<td>94</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Am</td>
+<td>95</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Cm</td>
+<td>96</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Bk</td>
+<td>97</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Cf</td>
+<td>98</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Es</td>
+<td>99</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Fm</td>
+<td>100</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>Md</td>
+<td>101</td>
+<td>f</td>
+<td>2.0 eV</td>
+</tr>
+<tr>
+<td>No</td>
+<td>102</td>
+<td>f</td>
+<td>2.0 eV</td>
 </tr>
 </tbody></table>
-<ul>
-<li><em>$E_e$</em>,equilibrium potential of an electrode, 平衡电极电位。大多数时候，反应都无法在标准状态下进行。由于此时离子浓度较标准状态下发生变化，平衡随之移动，平衡电位也会相继发生改变。</li>
-<li>反应的氧化态和还原态，注意能斯特方程的浓度方法，+氧化态在上面的浓度</li>
-</ul>
-<p>Oxidised State + <em>ne</em>-  ⇌ Reduced State</p>
-<h3 id="能斯特方程"><a href="#能斯特方程" class="headerlink" title="能斯特方程"></a>能斯特方程</h3><p>The Nernst equation links the <strong>equilibrium potential</strong> of an electrode, <em>E</em>e, to its <strong>standard potential</strong>(standard equilibium potential), <em>E</em>0, and the concentrations or pressures of the reacting components at a given temperature. It describes the value of <em>E</em>e for a given reaction as a function of the concentrations (or pressures) of all participating chemical species.</p>
-<p>In its most fundamental forms, the <strong>Nernst equation for an electrode</strong> is written as:</p>
-<p>$E_e$=$E_0$+$\frac{RT}{zF}ln\frac{[Oxidised]}{[Reduced]}$</p>
-<p>or</p>
-<p>$E_e$=$E_0$+$\frac{2.303RT}{zF}log\frac{[Oxidised]}{[Reduced]}$</p>
-<p>or</p>
-<p>$E_e$=$E_0$+$\frac{2.303$k_b$T}{ze}log\frac{[Oxidised]}{[Reduced]}$</p>
-<p> [Click here for a <a href="https://www.doitpoms.ac.uk/tlplib/pourbaix/nersnt_detailed.php" target="_blank" rel="noopener">full derivation of Nernst equation</a> – popup]</p>
-<p><em>R</em> is the universal gas constant (8.3145 J K-1 mol-1)<br><em>T</em> is the absolute temperature<br><em>z</em> is the number of moles of electrons involved in the reaction as written<br><em>F</em> is the Faraday constant (96 485 C per mole of electrons)</p>
-<p>The notation [<em>reduced</em>] represents the product of the concentrations (or pressures where gases are involved) of all the species that appear on the reduced side of the electrode reaction, raised to the power of their stoichiometric coefficients. The notation [<em>oxidised</em>] represents the same for the oxidised side of the electrode reaction.</p>
-<p>Explanation of <a href="https://www.doitpoms.ac.uk/tlplib/pourbaix/activity.php" target="_blank" rel="noopener">Activity</a></p>
+<p>LDAUU LDAUJ 两个参数是根据体系的POTCAR 中原子的种类来确定其值的个数，也就是说如果POTCAR 有三类原子的话，你想对其中的一类原子如V 加U 修正（假设加的U 为6.0V）的话，并且V 在POSCAR 中的顺序是 第2类原子，而其他元素的原子不想加U 的话，其相应值设为0 即可。</p>
+<p>格式为：<br>LDAUU = 0.00  2.00  0.00<br>LDAUJ =  0.00  0.20  0.00</p>
+<p>其他的:<br>LDAU =.TRUE.<br>LDAUTYPE = 2<br>LDAUL =-1  3   -1</p>
+<p>LDAUPRING =2  ,此参数一般可以不设。</p>
+<p>总之注意加 U 要和各种元素原子对应起来，这样才行。<br>LDAUJ 的值一般是LDAUU 值的1/10 或稍大一些，总之前者和后者差一个数量级。<br>LDAU = .TRUE. Switches on the L(S)DA+U.<br>• LDAUTYPE = 1|2|4 Type of L(S)DA+U (Default: LDAUTYPE = 2)<br>1 Rotationally invariant LSDA+U according to Liechtenstein et al.<br>4 Idem 1., but LDA+U instead of LSDA+U (i.e. no LSDA exchange splitting)<br>2 Dudarev’s approach to LSDA+U (Default)<br>• LDAUL = L .. l-quantum number for which the on site interaction is added<br>(-1: no on site terms added, 1: p, 2: d, 3: f, Default: LDAUL = 2)<br>• LDAUU = U .. Effective on site Coulomb interaction parameter<br>• LDAUJ = J .. Effective on</p>
 
     </div>
 
@@ -341,13 +598,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/23/%E8%85%90%E8%9A%80%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/" rel="prev" title="腐蚀热力学基础">
-      <i class="fa fa-chevron-left"></i> 腐蚀热力学基础
+    <a href="/2020/08/26/zotero%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E5%BC%95%E6%96%87/" rel="prev" title="zotero快速复制引文">
+      <i class="fa fa-chevron-left"></i> zotero快速复制引文
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/23/sklearn%E5%BA%93%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86%E5%8F%8A%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/" rel="next" title="sklearn库中常用数据集及调用方法">
-      sklearn库中常用数据集及调用方法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -407,7 +661,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念梳理"><span class="nav-number">1.</span> <span class="nav-text">基本概念梳理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能斯特方程"><span class="nav-number">2.</span> <span class="nav-text">能斯特方程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
