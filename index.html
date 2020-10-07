@@ -182,7 +182,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-07 16:31:47 / 修改时间：16:48:02" itemprop="dateCreated datePublished" datetime="2020-10-07T16:31:47+08:00">2020-10-07</time>
+              <time title="创建时间：2020-10-07 16:31:47 / 修改时间：18:15:39" itemprop="dateCreated datePublished" datetime="2020-10-07T16:31:47+08:00">2020-10-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,7 +200,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>614</span>
+              <span>629</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -219,29 +219,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<h3 id="screen命令解决的问题"><a href="#screen命令解决的问题" class="headerlink" title="screen命令解决的问题"></a>screen命令解决的问题</h3><p>当通过SSH 或者 telent 远程登录到 Linux 服务器长时间运行任务时，我们经常会为一些长时间运行的任务而头疼，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为他们执行的时间太长了。必须等待它执行完毕，在此期间若不小心关掉窗口或者网络断开连接，这个任务就会被杀掉，一切就半途而废。screen命令就可以很好的解决这个问题。</p>
-<h3 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h3><p>screen 在一些流行的发行版上已经预安装了。你可以使用下面的命令检查是否已经在你的服务器上安装了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -v</span><br><span class="line">&gt; Screen version 4.01.00devel (GNU) 2-May-06</span><br></pre></td></tr></table></figure>
-
-<p>若未安装screen<a href="https://www.jianshu.com/p/420569381e74" target="_blank" rel="noopener">请参考这里</a>。</p>
-<h3 id="Screen基础语法"><a href="#Screen基础语法" class="headerlink" title="Screen基础语法"></a>Screen基础语法</h3><p>新建一个screen窗口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S &lt;任务名字&gt;</span><br></pre></td></tr></table></figure>
-
-<p>显示所有的screen窗口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">&gt; There is a screen on:</span><br><span class="line">	27389.rfr	(Detached)</span><br><span class="line">1 Socket <span class="keyword">in</span> /var/run/screen/S-um008.</span><br><span class="line">(意思是只有一个叫做rfr任务，目前状态是未接触/detached)</span><br></pre></td></tr></table></figure>
-
-<p>attach到某一个screen任务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r &lt;任务名字&gt;/&lt;任务id&gt;</span><br></pre></td></tr></table></figure>
-
-<p>退出screen窗口并且使<strong>任务继续运行</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl a + d</span><br></pre></td></tr></table></figure>
-
-<p>杀死screen窗口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -X -S &lt;任务id&gt; quit</span><br></pre></td></tr></table></figure>
-
-
+          <p>linux下screen的用法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/07/linux%E4%B8%8Bscreen%E7%9A%84%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -286,6 +272,22 @@
 
               <time title="创建时间：2020-10-06 11:52:01" itemprop="dateCreated datePublished" datetime="2020-10-06T11:52:01+08:00">2020-10-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-07 17:28:58" itemprop="dateModified" datetime="2020-10-07T17:28:58+08:00">2020-10-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -293,7 +295,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,7 +314,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <a id="more"></a>
+
+<h3 id="KFold"><a href="#KFold" class="headerlink" title="KFold"></a><strong>KFold</strong></h3><p>首先看官网对这个类的定义(括号中均为默认参数)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class sklearn.model_selection.KFold(n_splits=5, *, shuffle=False, random_state=None)</span><br></pre></td></tr></table></figure>
+
+<p>KFold返回的是索引，共有三个参数：</p>
+<p><strong>n_splits</strong>，n折交叉验证，作者一般取10。</p>
+<p><strong>shuffle</strong>，洗牌的意思。若<code>shuffle=False</code>，则返回的测试集索引连续且固定。比如我们有50个样本，若采用十折交叉验证，则返回的测试集索引依次为，0-4，5-9……，代码实例于下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组训练集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfold_example.png" alt></p>
+<p>(后续为了解释方便将不打印出训练集系数)</p>
+<p>若<code>shuffle=True</code>，则返回的测试集索引随机且不连续。仍以50个样本为例，若采用十折交叉验证，代码实例于下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>,shuffle=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf1.png" style="zoom:50%;">
+
+<blockquote>
+<p>第二次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf2.png" style="zoom:50%;">
+
+<p>可以看出当参数<code>shuffle=True</code>，每次返回的索引值都不同。</p>
+<p><strong>random_state</strong>：在<code>shuffle=False</code>时没有意义。在<code>shuffle=True</code>时，设置成一个数字会使每次生成的随机数字相同，还以之前的50个样本的数据集为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>,shuffle=<span class="literal">True</span>,random_state=<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png" style="zoom:50%;">
+
+<blockquote>
+<p>第二次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png" style="zoom:50%;">
+
+<h3 id="StratifiedKFold"><a href="#StratifiedKFold" class="headerlink" title="StratifiedKFold"></a>StratifiedKFold</h3>
       
     </div>
 
@@ -1149,12 +1190,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">88k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:20</span>
 </div>
 
         

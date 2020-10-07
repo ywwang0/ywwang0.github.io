@@ -20,15 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="KFold首先看官网对这个类的定义(括号中均为默认参数) 1class sklearn.model_selection.KFold(n_splits&#x3D;5, *, shuffle&#x3D;False, random_state&#x3D;None)  KFold返回的是索引，共有三个参数： n_splits，n折交叉验证，作者一般取10。 shuffle，洗牌的意思。若shuffle&#x3D;False，则返回的测试集索">
+<meta property="og:type" content="article">
 <meta property="og:title" content="数据分割之KFold,StratifiedKFold,RepeatedKFold">
 <meta property="og:url" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/index.html">
 <meta property="og:site_name" content="计算材料学">
+<meta property="og:description" content="KFold首先看官网对这个类的定义(括号中均为默认参数) 1class sklearn.model_selection.KFold(n_splits&#x3D;5, *, shuffle&#x3D;False, random_state&#x3D;None)  KFold返回的是索引，共有三个参数： n_splits，n折交叉验证，作者一般取10。 shuffle，洗牌的意思。若shuffle&#x3D;False，则返回的测试集索">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfold_example.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf1.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf2.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png">
 <meta property="article:published_time" content="2020-10-06T03:52:01.000Z">
-<meta property="article:modified_time" content="2020-10-06T03:52:01.319Z">
+<meta property="article:modified_time" content="2020-10-07T09:28:58.829Z">
 <meta property="article:author" content="Yaowei Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfold_example.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/">
 
@@ -184,6 +192,22 @@
 
               <time title="创建时间：2020-10-06 11:52:01" itemprop="dateCreated datePublished" datetime="2020-10-06T11:52:01+08:00">2020-10-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-07 17:28:58" itemprop="dateModified" datetime="2020-10-07T17:28:58+08:00">2020-10-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -191,7 +215,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -210,7 +234,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <a id="more"></a>
+
+<h3 id="KFold"><a href="#KFold" class="headerlink" title="KFold"></a><strong>KFold</strong></h3><p>首先看官网对这个类的定义(括号中均为默认参数)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class sklearn.model_selection.KFold(n_splits=5, *, shuffle=False, random_state=None)</span><br></pre></td></tr></table></figure>
+
+<p>KFold返回的是索引，共有三个参数：</p>
+<p><strong>n_splits</strong>，n折交叉验证，作者一般取10。</p>
+<p><strong>shuffle</strong>，洗牌的意思。若<code>shuffle=False</code>，则返回的测试集索引连续且固定。比如我们有50个样本，若采用十折交叉验证，则返回的测试集索引依次为，0-4，5-9……，代码实例于下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组训练集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfold_example.png" alt></p>
+<p>(后续为了解释方便将不打印出训练集系数)</p>
+<p>若<code>shuffle=True</code>，则返回的测试集索引随机且不连续。仍以50个样本为例，若采用十折交叉验证，代码实例于下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>,shuffle=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf1.png" style="zoom:50%;">
+
+<blockquote>
+<p>第二次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kf2.png" style="zoom:50%;">
+
+<p>可以看出当参数<code>shuffle=True</code>，每次返回的索引值都不同。</p>
+<p><strong>random_state</strong>：在<code>shuffle=False</code>时没有意义。在<code>shuffle=True</code>时，设置成一个数字会使每次生成的随机数字相同，还以之前的50个样本的数据集为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold,StratifiedKFold,RepeatedKFold</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入有50个样本的数据集</span></span><br><span class="line">df = pd.read_excel(<span class="string">'raw_org_0.xlsx'</span>)</span><br><span class="line">y = df[<span class="string">'Ads_En'</span>]</span><br><span class="line">data = np.array(df)</span><br><span class="line"></span><br><span class="line">kf = KFold(n_splits=<span class="number">10</span>,shuffle=<span class="literal">True</span>,random_state=<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> n, index <span class="keyword">in</span> enumerate(kf.split(data)):</span><br><span class="line">    print(<span class="string">'-----第&#123;&#125;组测试集索引为：-----'</span>.format(n+<span class="number">1</span>))</span><br><span class="line">    print(index[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png" style="zoom:50%;">
+
+<blockquote>
+<p>第二次运行结果：</p>
+</blockquote>
+<img src="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/kfr.png" style="zoom:50%;">
+
+<h3 id="StratifiedKFold"><a href="#StratifiedKFold" class="headerlink" title="StratifiedKFold"></a>StratifiedKFold</h3>
     </div>
 
     
@@ -291,6 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#KFold"><span class="nav-number">1.</span> <span class="nav-text">KFold</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StratifiedKFold"><span class="nav-number">2.</span> <span class="nav-text">StratifiedKFold</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,12 +422,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">88k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:20</span>
 </div>
 
         
