@@ -157,6 +157,457 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B-%E8%81%9A%E7%B1%BB%E5%92%8C%E9%99%8D%E7%BB%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/23/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B-%E8%81%9A%E7%B1%BB%E5%92%8C%E9%99%8D%E7%BB%B4/" class="post-title-link" itemprop="url">无监督学习简介-聚类和降维</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 18:27:01" itemprop="dateCreated datePublished" datetime="2020-03-23T18:27:01+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-31 20:52:26" itemprop="dateModified" datetime="2020-03-31T20:52:26+08:00">2020-03-31</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>606</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h3 id="无监督学习的目标"><a href="#无监督学习的目标" class="headerlink" title="无监督学习的目标"></a>无监督学习的目标</h3><p>利用<strong>无标签的数据</strong>学习数据的分布或数据与数据之间的关系被称作无监督学习。</p>
+<ul>
+<li><p>有监督学习和无监督学习的最大区别在于数据是否有标签</p>
+</li>
+<li><p>无监督学习最常应用的场景是<strong>聚类(clustering)</strong>和<strong>降维(Dimension Reduction)</strong></p>
+</li>
+<li><p>聚类(clustering)，就是根据数据的“相似性”将数据分为多类的过程。评估两个不同样本之间的“相似性”，通常使用的方法就是计算两个样本之间的“距离”。使用不同的方法计算样本间的距离会关系到聚类结果的好坏。距离的常见算法有欧氏距离，曼哈顿距离，马氏距离，夹角余弦。</p>
+</li>
+<li><p>降维，就是在保证数据所具有的代表性特性或者分布的情况下，将高维数据转化为低维数据的过程。降维可以精简数据和数据可视化。</p>
+</li>
+</ul>
+<h3 id="聚类常见算法-sklearn-cluster"><a href="#聚类常见算法-sklearn-cluster" class="headerlink" title="聚类常见算法(sklearn.cluster)"></a>聚类常见算法(sklearn.cluster)</h3><table>
+<thead>
+<tr>
+<th align="center">算法名称</th>
+<th align="center">参数</th>
+<th align="center">可拓展性</th>
+<th align="center">相似性度量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">K-means</td>
+<td align="center">聚类个数</td>
+<td align="center">大规模数据</td>
+<td align="center">点间距离</td>
+</tr>
+<tr>
+<td align="center">DBSCAN</td>
+<td align="center">邻域大小</td>
+<td align="center">大规模数据</td>
+<td align="center">点间距离</td>
+</tr>
+<tr>
+<td align="center">Gaussian Mixtures</td>
+<td align="center">聚类个数及其他超参</td>
+<td align="center">复杂度高，不适合处理大规模数据</td>
+<td align="center">马氏距离</td>
+</tr>
+<tr>
+<td align="center">Birch</td>
+<td align="center">分支因子，阈值等其他超参</td>
+<td align="center">大规模数据</td>
+<td align="center">两点间的欧式距离</td>
+</tr>
+</tbody></table>
+<h3 id="常见降维算法-sklearn-decomposition"><a href="#常见降维算法-sklearn-decomposition" class="headerlink" title="常见降维算法(sklearn.decomposition)"></a>常见降维算法(sklearn.decomposition)</h3><table>
+<thead>
+<tr>
+<th align="center">算法</th>
+<th align="center">参数</th>
+<th align="center">可拓展性</th>
+<th align="center">适用任务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PCA</td>
+<td align="center">所降维度及其他超参</td>
+<td align="center">大规模数据</td>
+<td align="center">信号处理等</td>
+</tr>
+<tr>
+<td align="center">FastICA</td>
+<td align="center">所降维度及其他超参</td>
+<td align="center">超大规模数据</td>
+<td align="center">图形图像特征提取</td>
+</tr>
+<tr>
+<td align="center">NMF</td>
+<td align="center">所降维度及其他超参</td>
+<td align="center">大规模数据</td>
+<td align="center">图形图像特征提取</td>
+</tr>
+<tr>
+<td align="center">LDA</td>
+<td align="center">所降维度及其他超参</td>
+<td align="center">大规模数据</td>
+<td align="center">文本数据，主题挖掘</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/sklearn%E5%BA%93%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86%E5%8F%8A%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/23/sklearn%E5%BA%93%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86%E5%8F%8A%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">sklearn库中常用数据集及调用方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 18:07:24" itemprop="dateCreated datePublished" datetime="2020-03-23T18:07:24+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-29 16:24:55" itemprop="dateModified" datetime="2020-04-29T16:24:55+08:00">2020-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h3 id="常用数据集"><a href="#常用数据集" class="headerlink" title="常用数据集"></a>常用数据集</h3><table>
+<thead>
+<tr>
+<th>数据集名称</th>
+<th>调用方式</th>
+<th>适用算法</th>
+<th>数据规模</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>波士顿房价数据集</td>
+<td>load_boston()</td>
+<td>回归</td>
+<td>506*13</td>
+</tr>
+<tr>
+<td>鸢尾花数据集</td>
+<td>load_iris()</td>
+<td>分类</td>
+<td>150*4</td>
+</tr>
+<tr>
+<td>糖尿病数据集</td>
+<td>load_diabetes()</td>
+<td>回归</td>
+<td>442*10</td>
+</tr>
+<tr>
+<td>手写数字数据集</td>
+<td>load_digits()</td>
+<td>分类</td>
+<td>5620*64</td>
+</tr>
+<tr>
+<td>Olivetti 脸部图像数据集</td>
+<td>fetch_olivetti_faces()</td>
+<td>降维</td>
+<td>400<em>64</em>64</td>
+</tr>
+<tr>
+<td>新闻分类数据集</td>
+<td>fetch_20newsgroups()</td>
+<td>分类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>带标签的人脸数据集</td>
+<td>fetch_lfw_people()</td>
+<td>分类；降维</td>
+<td>-</td>
+</tr>
+<tr>
+<td>路透社新闻语料数据集</td>
+<td>fetch_rcv1()</td>
+<td>分类</td>
+<td>804414*47236</td>
+</tr>
+</tbody></table>
+<p><code>sklearn.datasets.load_boston</code></p>
+<p>其重要参数为：</p>
+<p>•<strong>return_X_y</strong>:表示是否返回target（即价格），默认为False，只返回data（即属性）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston = load_boston</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print( boston.data.shape)</span><br><span class="line">(<span class="number">506</span>, <span class="number">13</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="sklearn库的基本功能"><a href="#sklearn库的基本功能" class="headerlink" title="sklearn库的基本功能"></a>sklearn库的基本功能</h3><h4 id="分类任务"><a href="#分类任务" class="headerlink" title="分类任务"></a>分类任务</h4><table>
+<thead>
+<tr>
+<th>分类模型</th>
+<th>加载模块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最近邻算法</td>
+<td>neighbors.NearestNeighbors</td>
+</tr>
+<tr>
+<td>支持向量机</td>
+<td>svm.SVC</td>
+</tr>
+<tr>
+<td>朴素贝叶斯</td>
+<td>naive_bayes.GaussianNB</td>
+</tr>
+<tr>
+<td>决策树</td>
+<td>tree.DecisionTreeClassifier</td>
+</tr>
+<tr>
+<td>集成方法</td>
+<td>ensemble.BaggingClassifier</td>
+</tr>
+<tr>
+<td>神经网络</td>
+<td>neural_network.MLPClassifier</td>
+</tr>
+</tbody></table>
+<h4 id="回归任务"><a href="#回归任务" class="headerlink" title="回归任务"></a>回归任务</h4><table>
+<thead>
+<tr>
+<th>回归模型</th>
+<th>加载模块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>岭回归</td>
+<td>linear_model.Ridge</td>
+</tr>
+<tr>
+<td>Lasso回归</td>
+<td>linear_model.Lasso</td>
+</tr>
+<tr>
+<td>弹性网络</td>
+<td>linear_model.ElasticNet</td>
+</tr>
+<tr>
+<td>最小角回归</td>
+<td>linear_model.Lars</td>
+</tr>
+<tr>
+<td>贝叶斯回归</td>
+<td>linear_model.BayesianRidge</td>
+</tr>
+<tr>
+<td>逻辑回归</td>
+<td>linear_model.LogisticRegression</td>
+</tr>
+<tr>
+<td>多项式回归</td>
+<td>preprocessing. PolynomialFeatures</td>
+</tr>
+</tbody></table>
+<h4 id="聚类任务"><a href="#聚类任务" class="headerlink" title="聚类任务"></a>聚类任务</h4><table>
+<thead>
+<tr>
+<th>聚类方法</th>
+<th>加载模块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K-means</td>
+<td>cluster.KMeans</td>
+</tr>
+<tr>
+<td>AP聚类</td>
+<td>cluster.AffinityPropagation</td>
+</tr>
+<tr>
+<td>均值漂移</td>
+<td>cluster.MeanShift</td>
+</tr>
+<tr>
+<td>层次聚类</td>
+<td>cluster.AgglomerativeClustering</td>
+</tr>
+<tr>
+<td>DBSCAN</td>
+<td>cluster.DBSCAN</td>
+</tr>
+<tr>
+<td>BIRCH</td>
+<td>cluster.Birch</td>
+</tr>
+<tr>
+<td>谱聚类</td>
+<td>cluster.SpectralClustering</td>
+</tr>
+</tbody></table>
+<h4 id="降维人物"><a href="#降维人物" class="headerlink" title="降维人物"></a>降维人物</h4><table>
+<thead>
+<tr>
+<th>降维方法</th>
+<th>加载模块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主成分分析</td>
+<td>decomposition.PCA</td>
+</tr>
+<tr>
+<td>截断SVD和LSA</td>
+<td>decomposition.TruncatedSVD</td>
+</tr>
+<tr>
+<td>字典学习</td>
+<td>decomposition.SparseCoder</td>
+</tr>
+<tr>
+<td>因子分析</td>
+<td>decomposition.FactorAnalysis</td>
+</tr>
+<tr>
+<td>独立成分分析</td>
+<td>decomposition.FastICA</td>
+</tr>
+<tr>
+<td>非负矩阵分解</td>
+<td>decomposition.NMF</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td>decomposition.LatentDirichletAllocation</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/Nernst-equation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1998,252 +2449,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/Markdown%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/Markdown%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Markdown常见语法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 12:12:57" itemprop="dateCreated datePublished" datetime="2020-03-15T12:12:57+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-15 17:35:19" itemprop="dateModified" datetime="2020-04-15T17:35:19+08:00">2020-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E5%AD%A6%E6%9D%82%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">杂学杂记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>362</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<h3 id="生成目录"><a href="#生成目录" class="headerlink" title="生成目录"></a>生成目录</h3><p>/[toc]开始时添加这个</p>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p># 标题：从#到######一共六级，#越多字体越小，一般我使用三级标题。</p>
-<!-- more -->
-
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>/1. 这是第一点， 有序列表，/为转义字符</p>
-<p>/- 这是第一点， 无序列表</p>
-<ol>
-<li>first list</li>
-</ol>
-<ul>
-<li>second list</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><code>import os</code>，当行代码</p>
-<p>/``` python，多行代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">print(<span class="string">'Hellom Markdown'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>/```</p>
-<h3 id="一些常用格式"><a href="#一些常用格式" class="headerlink" title="一些常用格式"></a>一些常用格式</h3><p><em>斜体</em>，<strong>粗体</strong>，<u>下划线</u>，<del>删除线</del>，这几种格式看快捷键</p>
-<p><strong>引用</strong>： /&gt; 引用内容</p>
-<blockquote>
-<p>这是一段引用</p>
-</blockquote>
-<p><strong>链接</strong>：/[文本名]/(网站位置)</p>
-<p><a href="https://www.google.com.hk/" target="_blank" rel="noopener">谷歌搜索</a></p>
-<p><strong>插入图片</strong>：/![评论]/(网址)</p>
-<p><img src="https://www.google.com.hk/search?q=markdown&safe=strict&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjN3t-DxZboAhWWE4gKHTVVD3UQ_AUoAnoECBYQBA#imgrc=_9bom5QATC3OYM" alt="谷歌搜索中的一张图"></p>
-<p><strong>分割线</strong>：/—</p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>/|吸附位点|吸附能|吸附位置|</p>
-<p>/|1|2|3|</p>
-<table>
-<thead>
-<tr>
-<th>吸附位点</th>
-<th>吸附能</th>
-<th>吸附位置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-</tr>
-<tr>
-<td>7</td>
-<td>8</td>
-<td>9</td>
-</tr>
-</tbody></table>
-<h3 id="一些小问题"><a href="#一些小问题" class="headerlink" title="一些小问题"></a>一些小问题</h3><ul>
-<li>Mac OS数字1左边的”`”需要在英文输入法下才可以打出来</li>
-<li>大部分的符号都要在英文输入法下才有效</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/%E8%AF%BB%E5%8D%9A%E5%B0%B1%E5%83%8F%E4%B8%80%E5%9C%BA%E8%B5%8C%E5%8D%9A(%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A7%E5%8D%9A%E5%A3%AB)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/%E8%AF%BB%E5%8D%9A%E5%B0%B1%E5%83%8F%E4%B8%80%E5%9C%BA%E8%B5%8C%E5%8D%9A(%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A7%E5%8D%9A%E5%A3%AB)/" class="post-title-link" itemprop="url">读博就像一场赌博(上海交大博士)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 12:12:57" itemprop="dateCreated datePublished" datetime="2020-03-15T12:12:57+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-29 16:24:39" itemprop="dateModified" datetime="2020-04-29T16:24:39+08:00">2020-04-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E5%AD%A6%E6%9D%82%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">杂学杂记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="博士生学历真的很重要吗？"><a href="#博士生学历真的很重要吗？" class="headerlink" title="博士生学历真的很重要吗？"></a>博士生学历真的很重要吗？</h2><p>用讲道理的方式去说服一个人接受你的观点，通常是很难的，那我就讲讲自己的故事吧，很长，要表达的，都在里面了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/15/%E8%AF%BB%E5%8D%9A%E5%B0%B1%E5%83%8F%E4%B8%80%E5%9C%BA%E8%B5%8C%E5%8D%9A(%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A7%E5%8D%9A%E5%A3%AB)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2311,7 +2521,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

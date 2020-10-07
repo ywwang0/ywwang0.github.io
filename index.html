@@ -157,6 +157,180 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/linux%E4%B8%8Bscreen%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/07/linux%E4%B8%8Bscreen%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">linux下screen的用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-07 16:31:47 / 修改时间：16:48:02" itemprop="dateCreated datePublished" datetime="2020-10-07T16:31:47+08:00">2020-10-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">Linux操作系统与常用软件</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>614</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h3 id="screen命令解决的问题"><a href="#screen命令解决的问题" class="headerlink" title="screen命令解决的问题"></a>screen命令解决的问题</h3><p>当通过SSH 或者 telent 远程登录到 Linux 服务器长时间运行任务时，我们经常会为一些长时间运行的任务而头疼，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为他们执行的时间太长了。必须等待它执行完毕，在此期间若不小心关掉窗口或者网络断开连接，这个任务就会被杀掉，一切就半途而废。screen命令就可以很好的解决这个问题。</p>
+<h3 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h3><p>screen 在一些流行的发行版上已经预安装了。你可以使用下面的命令检查是否已经在你的服务器上安装了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -v</span><br><span class="line">&gt; Screen version 4.01.00devel (GNU) 2-May-06</span><br></pre></td></tr></table></figure>
+
+<p>若未安装screen<a href="https://www.jianshu.com/p/420569381e74" target="_blank" rel="noopener">请参考这里</a>。</p>
+<h3 id="Screen基础语法"><a href="#Screen基础语法" class="headerlink" title="Screen基础语法"></a>Screen基础语法</h3><p>新建一个screen窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S &lt;任务名字&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示所有的screen窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br><span class="line">&gt; There is a screen on:</span><br><span class="line">	27389.rfr	(Detached)</span><br><span class="line">1 Socket <span class="keyword">in</span> /var/run/screen/S-um008.</span><br><span class="line">(意思是只有一个叫做rfr任务，目前状态是未接触/detached)</span><br></pre></td></tr></table></figure>
+
+<p>attach到某一个screen任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r &lt;任务名字&gt;/&lt;任务id&gt;</span><br></pre></td></tr></table></figure>
+
+<p>退出screen窗口并且使<strong>任务继续运行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl a + d</span><br></pre></td></tr></table></figure>
+
+<p>杀死screen窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -X -S &lt;任务id&gt; quit</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/06/%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%E4%B9%8BKFold-StratifiedKFold-RepeatedKFold/" class="post-title-link" itemprop="url">数据分割之KFold,StratifiedKFold,RepeatedKFold</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-06 11:52:01" itemprop="dateCreated datePublished" datetime="2020-10-06T11:52:01+08:00">2020-10-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E5%9B%A0%E7%B4%A0%E5%85%B3%E8%81%94%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -851,209 +1025,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/18/VASP%E4%B8%AD%E7%9A%84%E8%B5%9D%E5%8A%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/VASP%E4%B8%AD%E7%9A%84%E8%B5%9D%E5%8A%BF/" class="post-title-link" itemprop="url">VASP中的赝势</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-18 09:53:13 / 修改时间：10:22:27" itemprop="dateCreated datePublished" datetime="2020-08-18T09:53:13+08:00">2020-08-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VASP/" itemprop="url" rel="index"><span itemprop="name">VASP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<h4 id="综述关系"><a href="#综述关系" class="headerlink" title="综述关系"></a>综述关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">赝势--&gt;模守恒赝势</span><br><span class="line">赝势--&gt;PAW投影缀加平面波</span><br><span class="line">赝势--&gt;USPP超软赝势</span><br><span class="line">PAW投影缀加平面波--&gt;LDA:局域密度泛函</span><br><span class="line">PAW投影缀加平面波--&gt;GGA:广义梯度泛函</span><br><span class="line">PAW投影缀加平面波--&gt;杂化泛函</span><br><span class="line">GGA:广义梯度泛函--&gt;PBE</span><br><span class="line">GGA:广义梯度泛函--&gt;PW91:一般不用</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>This work is based on the density functional theory (DFT) calculations performed by using the Vienna ab initio Simulation Package (VASP) software. The interaction between ion cores and valence electrons described by the projector augmented wave (PAW) method34. The generalized gradient approximation (GGA)35 in the form of Perdew–Burke–Ernzerhof (PBE) exchange functional36 was used to solve the quantum states of electron. The plane-wave energy cutoff is set to 500 eV. The Monkhorst–Pack method37 with 1 × 1 × 2 k-point mesh is employed for the Brillouin zone sampling of the super lattice. The convergence criteria of energy and force are set to 10−5 eV/atom and 0.01 eV/Å, respectively. The anion charges of lithium compounds were calculated by using the Atoms in Molecules method (Bader charge analysis)38. The energy variations and migration barriers of lithium ion migration in fcc-type anion sublattices with 48 anions (Supplementary Fig. 3) are calculated by the nudged elastic band (NEB) method39,40. The anion charges are changed by the uniform background charge of the sublattice system. Only the one migrating lithium ion is allowed to relax, while the other anions are fixed in their initial positions, and this method can be also found in Ceder’s work8 .</p>
-</blockquote>
-<p>文章中引用的时候需要五篇：DFT，PAW，GGA，PBE，VASP</p>
-<h4 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h4><p>vasp计算中用到的三种赝势：模守恒赝势，超软赝势，PAW赝势(按产生顺序)。</p>
-<p>按方法不同分为USPP（ultrasoft pesudopotential，超软赝势）和PAW（projector augmented wave，投影缀加平面波），两种方法都可以相当程度地减少过渡金属或第一行元素的每个原子所必需的平面波数量。</p>
-<p>按交换关联函数不同分为LDA（local density approximation，局域密度近似）和GGA（generalized-gradient approximation，广义梯度近似），GGA又分为PW91（Perdew -Wang 91）和PBE（Perdew-Burke-Ernzerhof）。</p>
-<p>求解K-S方程时电子之间的交换关联泛函取局域密度泛函LDA（Rc处电子结构当成是密度相同的均匀电子气体来算）。</p>
-<p>广义梯度泛函GGA（考虑了密度的梯度变化），但泛函的不同也会引起贋势的不同。</p>
-<ul>
-<li>paw文件夹：PAW-LDA</li>
-<li>paw_gga文件夹：PAW-GGA-PW91</li>
-<li>paw_pbe文件夹：PAW-GGA-PBE</li>
-<li>pot文件夹：USPP-LDA</li>
-<li>pot_GGA文件夹：USPP-GGA</li>
-</ul>
-<p>选择某个目录进去，我们还会发现对应每种元素往往还会有多种赝势存在。这是因为根据ENMAX的大小还可以分为 Ga,Ga_s（soft）,Ga_h，或者根据处理半芯态的不同还可以分为Ga,Ga_sv（s电子作为半芯态）,Ga_pv的不同。</p>
-<p>对于化合物（不同原子半径的元素混合）来说，PAW赝势比超软赝势精确度高。</p>
-<p>US型赝势所需截至能较小，计算速度快，PAW赝势截至能通常较大，而且考虑的电子数多，计算慢，但精确度高。</p>
-<p>在做具体的计算之前，针对需要计算的性质选取不同的贋势做下测试。对于不同贋势得到的结果，关注其最终的能量差，而不是绝对能量。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/17/%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">顺时针打印矩阵（剑指offer29）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-17 19:38:14 / 修改时间：20:03:42" itemprop="dateCreated datePublished" datetime="2020-08-17T19:38:14+08:00">2020-08-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<h4 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h4><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">11</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-
-<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># python3定义函数的格式，代表matrix中是一个列表，列表中还有列表，最里层列表中的元素是数字，返回是一个列表，其中也是数字</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">spiralOrder</span><span class="params">(self, matrix:[[int]])</span> -&gt; [int]:</span></span><br><span class="line">        <span class="comment"># 检查是否为空矩阵</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> matrix: <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment"># 初始化上下左右四个边界值</span></span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        r = len(matrix[<span class="number">0</span>])<span class="number">-1</span></span><br><span class="line">        t = <span class="number">0</span></span><br><span class="line">        b = len(matrix) - <span class="number">1</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="comment"># 这是一个永久循环，一直到break执行，如果没有这句只会执行最外面的一层</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(l, r + <span class="number">1</span>): res.append(matrix[t][i]) <span class="comment"># left to right</span></span><br><span class="line">            t += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> t &gt; b: <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(t, b + <span class="number">1</span>): res.append(matrix[i][r]) <span class="comment"># top to bottom</span></span><br><span class="line">            r -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> l &gt; r: <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(r, l - <span class="number">1</span>, <span class="number">-1</span>): res.append(matrix[b][i]) <span class="comment"># right to left</span></span><br><span class="line">            b -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> t &gt; b: <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(b, t - <span class="number">1</span>, <span class="number">-1</span>): res.append(matrix[i][l]) <span class="comment"># bottom to top</span></span><br><span class="line">            l += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> l &gt; r: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
-<h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><h5 id="While-True的作用"><a href="#While-True的作用" class="headerlink" title="While True的作用"></a>While True的作用</h5><h5 id="range函数"><a href="#range函数" class="headerlink" title="range函数"></a>range函数</h5><p>range函数有三个参数<code>range(start, stop[, step])</code>, 一般来说range函数默认从0开始，第一额参数显示，最后一个参数不显示，若步长为-1则需要start大于stop</p>
-<h5 id="类和函数的区别及调用，self的作用"><a href="#类和函数的区别及调用，self的作用" class="headerlink" title="类和函数的区别及调用，self的作用"></a>类和函数的区别及调用，self的作用</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">matirix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]]</span><br><span class="line"><span class="comment"># 初始化一个类并且调用这个类下的函数</span></span><br><span class="line">s = Solution()</span><br><span class="line">s.spiralOrder(matirix)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">12</span>, <span class="number">11</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1121,7 +1097,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
