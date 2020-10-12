@@ -51,7 +51,7 @@
 <a id="more"></a>
 
 <h3 id="KFold"><a href="#KFold" class="headerlink" title="KFold"></a><strong>KFold</strong></h3><p>首先看官网对这个类的定义(括号中均为默认参数)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class sklearn.model_selection.KFold(n_splits=5, *, shuffle=False, random_state=None)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sklearn</span>.<span class="title">model_selection</span>.<span class="title">KFold</span><span class="params">(n_splits=<span class="number">5</span>, *, shuffle=False, random_state=None)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>KFold返回的是索引，共有三个参数：</p>
 <p><strong>n_splits</strong>，n折交叉验证，作者一般取10。</p>
