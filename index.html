@@ -157,6 +157,196 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/09/VASP%E6%95%99%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/09/VASP%E6%95%99%E5%AD%A6/" class="post-title-link" itemprop="url">VASP教学</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-09 08:47:50 / 修改时间：08:50:01" itemprop="dateCreated datePublished" datetime="2020-11-09T08:47:50+08:00">2020-11-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VASP/" itemprop="url" rel="index"><span itemprop="name">VASP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h4><ul>
+<li><p>安装软件，登陆集群，熟悉常见的linux操作，熟悉vasp的提交格式，掌握slurm任务调度系统，成功提交计算并分析；</p>
+<blockquote>
+<p><strong>HW1</strong>:提交任务计算Mg，Cu晶格常数并与实验和其他计算值做比较</p>
+</blockquote>
+</li>
+<li><p>纯金属和第二相表面能的计算；</p>
+<blockquote>
+<p><strong>HW2</strong>:分别计算Mg，Cu的(001)的slab能量及表面能，刘阳调节好MS，MS如何切表面。</p>
+</blockquote>
+</li>
+<li><p>第二相表面吸附H原子，电子逸出功（功函数）；</p>
+<blockquote>
+<p><strong>HW3</strong>:</p>
+<p>(1)计算Al最稳定表面的H原子吸附能（要考虑到不同的代表性吸附位点），计算参杂Zn原子后的吸附能并且与纯Al吸附比较;</p>
+<p>(2)提交Al不同表面(001),(110),(111)的功函数计算。</p>
+</blockquote>
+</li>
+<li><p>表面析氢动力学；</p>
+</li>
+<li><p>基体、析出相电极电位差，金属第二相的表面能和吸附；</p>
+</li>
+<li><p>自由能计算（考虑熵的影响）</p>
+</li>
+</ul>
+<h4 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h4><p>常用软件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Atom: 文本编辑软件</span><br><span class="line">VESTA： 原子结构可视化软件</span><br><span class="line">FileZilla： 远程传输软件</span><br><span class="line">Putty： Windows登陆集群软件</span><br><span class="line">Material Studio： 原子建模软件</span><br><span class="line">P4 vasp：vasp结果后处理软件</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="SSH命令远程登陆集群"><a href="#SSH命令远程登陆集群" class="headerlink" title="SSH命令远程登陆集群"></a>SSH命令远程登陆集群</h5><h5 id="常用的linux命令"><a href="#常用的linux命令" class="headerlink" title="常用的linux命令"></a>常用的linux命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line">ls</span><br><span class="line"><span class="built_in">cd</span> &lt;文件夹名&gt;</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">Tab 补全文件名称</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">rm &lt;文件名/文件夹名&gt;</span><br><span class="line">mkdir</span><br><span class="line">vim &lt;文件名&gt; - i进入编辑状态，esc退出编辑状态，:wq退出文本编辑</span><br><span class="line">cat POSCAR</span><br><span class="line">cp /lustre/home/acct-umjzhh/umjzhh-3/BJUT/wyw/get.py ./</span><br><span class="line">cp ../ly/get.py ./</span><br><span class="line">grep <span class="string">"text"</span> OUTCAR</span><br><span class="line">head/tail -n 5 &lt;文件名&gt;</span><br><span class="line">mv &lt;文件名&gt; 文件地址。eg： mv <span class="built_in">test</span> ..    mv ./* bulk</span><br><span class="line">cp ../../bulk/get.py ./</span><br></pre></td></tr></table></figure>
+
+<h5 id="VASP计算的输入文件"><a href="#VASP计算的输入文件" class="headerlink" title="VASP计算的输入文件"></a>VASP计算的输入文件</h5><blockquote>
+<p><strong>POSCAR：</strong>各个原子的位置信息，可以自己手动输入，也可以从MP库中下载</p>
+<p><strong>INCAR：</strong>告诉VASP算什么，怎么算。各个标签的含义可以从vasp manuel中查找</p>
+<p><strong>KPOINTS：</strong>包含计算的K点信息(晶胞的边长*k=25)</p>
+<p><strong>POTCAR：</strong>对应的是计算过程中每个原子的平面波基组，描述原子中原子核和电子的相关信息。</p>
+</blockquote>
+<h5 id="VASP计算的输入文件-1"><a href="#VASP计算的输入文件-1" class="headerlink" title="VASP计算的输入文件"></a>VASP计算的输入文件</h5><blockquote>
+<p>CONTCAR：弛豫后的结构，弛豫是物理学用语，指的是在某一个渐变物理过程中，从某一个状态逐渐地恢复到平衡态的过程。</p>
+<p>WAVECAR：一般很大，存放波函数信息</p>
+<p>CHGCAR：存放电荷信息</p>
+<p>OSZICAR：存放能量信息</p>
+<p>OUTCAR：比较综合的输出文件，很多有很多信息。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Al4 <span class="comment">#代表了体系的名称，第一行随便写。 I'm from China</span></span><br><span class="line"><span class="number">1.0</span> <span class="comment">#缩放系数</span></span><br><span class="line"><span class="number">4.038930</span> <span class="number">0.000000</span> <span class="number">0.000000</span></span><br><span class="line"><span class="number">0.000000</span> <span class="number">4.038930</span> <span class="number">0.000000</span></span><br><span class="line"><span class="number">0.000000</span> <span class="number">0.000000</span> <span class="number">4.038930</span></span><br><span class="line">Al <span class="comment">#体系中元素的名称</span></span><br><span class="line"><span class="number">4</span>  <span class="comment">#体系中元素的个数</span></span><br><span class="line">direct <span class="comment">#可以写成分数坐标和直角（Cartersian）坐标，这里面写成分数坐标。</span></span><br><span class="line"><span class="number">0.000000</span> <span class="number">0.000000</span> <span class="number">0.000000</span> Al</span><br><span class="line"><span class="number">0.000000</span> <span class="number">0.500000</span> <span class="number">0.500000</span> Al</span><br><span class="line"><span class="number">0.500000</span> <span class="number">0.000000</span> <span class="number">0.500000</span> Al</span><br><span class="line"><span class="number">0.500000</span> <span class="number">0.500000</span> <span class="number">0.000000</span> Al</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">EDIFF = <span class="number">1e-5</span> <span class="comment">#能量的收敛标准，10**-5～10**-6 eV/atom</span></span><br><span class="line">EDIFFG = <span class="number">-0.015</span> <span class="comment">#力的收敛标准，暂时不考.BULK计算可以不放，slab计算要放。</span></span><br><span class="line">ENCUT = <span class="number">480</span> <span class="comment">#截断能，grep “ENMAX” POTCAR，POTCAR一般使用PBE。</span></span><br><span class="line">IBRION = <span class="number">2</span> <span class="comment">#conjugate-gradient algorithm</span></span><br><span class="line">NSW = <span class="number">200</span> <span class="comment">#离子收敛步数</span></span><br><span class="line">NELM = <span class="number">100</span> <span class="comment">#电子收敛步数</span></span><br><span class="line">ISIF = <span class="number">3</span> <span class="comment">#controls whether the stress tensor is calculated.</span></span><br><span class="line">ISMEAR = <span class="number">1</span> <span class="comment">#金属设置1就可以，半导体绝缘体设置0</span></span><br><span class="line">ISPIN = <span class="number">1</span> <span class="comment">#电子自旋，Fe，Co，Ni或者O原子需要设置为2，其余为1</span></span><br><span class="line"></span><br><span class="line">SIGMA = <span class="number">0.05</span></span><br><span class="line">POTIM = <span class="number">0.1</span></span><br><span class="line">LREAL = Auto</span><br><span class="line">PREC = Accurate</span><br><span class="line">ALGO = Fast</span><br></pre></td></tr></table></figure>
+
+<p>python脚本自动生成KPOINTS文件和POTCAR文件</p>
+<h5 id="Material-project"><a href="#Material-project" class="headerlink" title="Material project"></a>Material project</h5><p><a href="https://materialsproject.org/（排在第一的绿色的），下载POSCAR。" target="_blank" rel="noopener">https://materialsproject.org/（排在第一的绿色的），下载POSCAR。</a></p>
+<p><a href="https://www.vasp.at/forum/" target="_blank" rel="noopener">https://www.vasp.at/forum/</a></p>
+<p><a href="https://cms.mpi.univie.ac.at/vasp/vasp/vasp.html" target="_blank" rel="noopener">https://cms.mpi.univie.ac.at/vasp/vasp/vasp.html</a></p>
+<h4 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda env list <span class="comment">#查看虚拟环境个数及名称</span></span><br><span class="line">conda activate atomate_wyw <span class="comment">#进入虚拟环境</span></span><br><span class="line">source deactivate atomate_wyw <span class="comment">#退出虚拟环境</span></span><br><span class="line">python get.py <span class="comment">#获得KPOINTS文件和POTCAR文件</span></span><br><span class="line">Ctrl+D 退出集群登陆</span><br><span class="line"></span><br><span class="line">scancel+id 取消任务</span><br></pre></td></tr></table></figure>
+
+<h4 id="提交任务"><a href="#提交任务" class="headerlink" title="提交任务"></a>提交任务</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sbatch vasp_std.slurm</span><br><span class="line">squeue <span class="comment">#查看任务计算情况</span></span><br><span class="line">cat CONTCAR</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h4><h5 id="表面能的计算公式"><a href="#表面能的计算公式" class="headerlink" title="表面能的计算公式"></a>表面能的计算公式</h5><p>$E_{surf}=\frac{E_{slab}-E_{bulk}}{2S}$</p>
+<p>其中$E_{surf}$代表体系对应的表面能，$E_{slab}$,$E_{bulk}$ 分别代表slab和bulk(体相)的能量，S代表表面积。</p>
+<h5 id="结果读取"><a href="#结果读取" class="headerlink" title="结果读取"></a>结果读取</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断体系是否正常结束？收敛？</span></span><br><span class="line">OUTCAR, <span class="string">"reached required accuracy - stopping structural energy minimisation"</span></span><br><span class="line">- grep <span class="string">"reached required accuracy"</span> OUTCAR</span><br><span class="line"></span><br><span class="line"><span class="comment"># 体系的能量在哪里读？</span></span><br><span class="line">OSZICAR 中E0后面的 E0= <span class="number">-.14946477E+02</span> = <span class="number">-14.946477</span> eV</span><br></pre></td></tr></table></figure>
+
+<h5 id="切表面的过程"><a href="#切表面的过程" class="headerlink" title="切表面的过程"></a>切表面的过程</h5><p>1.将计算好的CONTCAR保存为POSCAR,并在VESTA中将.vasp文件转位MS支持的.cif文件。File-Export data-save as .alcif</p>
+<h4 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h4><blockquote>
+<p>之前计算了Al(001), (110), (111)表面的表面能，并且发现Al(111)表面是最稳定的。</p>
+</blockquote>
+<pre class="mermaid">graph LR
+ISIF=3优化晶格常数-->MS切表面
+MS切表面-->计算低指数表面的表面能
+计算低指数表面的表面能-->选择的最稳定表面做H吸附</pre>
+
+<h4 id="吸附能的计算公式"><a href="#吸附能的计算公式" class="headerlink" title="吸附能的计算公式"></a>吸附能的计算公式</h4><p>$E_{ads}=E_{slab<em>H}-E_{slab}-\frac{n</em>E_{H_2}}{2}$</p>
+<p>n代表吸附原子的个数</p>
+<h4 id="找到Al-111-表面具有代表性的吸附位点"><a href="#找到Al-111-表面具有代表性的吸附位点" class="headerlink" title="找到Al(111)表面具有代表性的吸附位点"></a>找到Al(111)表面具有代表性的吸附位点</h4><p><img src="/2020/11/09/VASP%E6%95%99%E5%AD%A6/1.png" alt></p>
+<h4 id="在表面添加吸附H原子"><a href="#在表面添加吸附H原子" class="headerlink" title="在表面添加吸附H原子"></a>在表面添加吸附H原子</h4><p>编辑CONTCAR文件</p>
+<h4 id="功函数计算流程"><a href="#功函数计算流程" class="headerlink" title="功函数计算流程"></a>功函数计算流程</h4><p><img src="/2020/11/09/VASP%E6%95%99%E5%AD%A6/2.png" alt></p>
+<p>$W_{F}=E_{vac}-E_{fermi}$</p>
+<p><strong>费米能的计算</strong>：VASP 弛豫计算结束之后，通过命令，<code>grep &#39;E-fermi&#39; OUTCAR</code> 即可提取出来。</p>
+<h5 id="静电势能的计算-通过在-INCAR-中添加：-LVHAR-TRUE-这个参数。"><a href="#静电势能的计算-通过在-INCAR-中添加：-LVHAR-TRUE-这个参数。" class="headerlink" title="静电势能的计算: 通过在 INCAR 中添加： LVHAR =.TRUE. 这个参数。"></a>静电势能的计算: 通过在 INCAR 中添加： <code>LVHAR =.TRUE.</code> 这个参数。</h5><p>加入这个参数，计算结束后，VASP 会输出一个文件： <strong>LOCPOT</strong> 文件。我们可以通过脚本，或者程序对这个文件后处理来获取静电势能。</p>
+<p>功函数计算流程总结：</p>
+<pre class="mermaid">graph LR
+优化获取稳定的结构-->将CONTCAR复制成POSCAR
+将CONTCAR复制成POSCAR-->更改INCAR参数
+更改INCAR参数-->提交任务</pre>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">EDIFF &#x3D; 1e-4</span><br><span class="line">EDIFFG &#x3D; -0.015</span><br><span class="line">ENCUT &#x3D; 480</span><br><span class="line">IBRION &#x3D; 2</span><br><span class="line"># 计算功函数时需要更改！</span><br><span class="line">NSW &#x3D; 0</span><br><span class="line">NELM &#x3D; 100</span><br><span class="line">ISIF &#x3D; 3</span><br><span class="line">ISMEAR &#x3D; 1</span><br><span class="line">ISPIN &#x3D; 1</span><br><span class="line"></span><br><span class="line">SIGMA &#x3D; 0.05</span><br><span class="line">POTIM &#x3D; 0.1</span><br><span class="line">LREAL &#x3D; Auto</span><br><span class="line">PREC &#x3D; Accurate</span><br><span class="line">ALGO &#x3D; Fast</span><br><span class="line"></span><br><span class="line"># 需要增加的参数</span><br><span class="line">LVHAR &#x3D; .TRUE.</span><br><span class="line">IDIPOL &#x3D;.TRUE.</span><br><span class="line">IDIPOL &#x3D; 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="计算-H-2-分子能量"><a href="#计算-H-2-分子能量" class="headerlink" title="计算$H_2$分子能量"></a>计算$H_2$分子能量</h4><h4 id="基体、析出相电极电位差"><a href="#基体、析出相电极电位差" class="headerlink" title="基体、析出相电极电位差"></a>基体、析出相电极电位差</h4><h5 id="能斯特方程"><a href="#能斯特方程" class="headerlink" title="能斯特方程"></a>能斯特方程</h5><p>在标准状态下，标准H电极的电位是0.</p>
+<p>常见的离子化学势网站：<a href="https://job-stiftung.de/index.php?id=63" target="_blank" rel="noopener">https://job-stiftung.de/index.php?id=63</a></p>
+<p>Pourbaix diagram, E-PH图， 布拜图定腐蚀产物</p>
+<p>我们假设的腐蚀环境，离子浓度为$10^{-6}$或者$10^{-8}$,环境为中性</p>
+<h4 id="NEB的计算"><a href="#NEB的计算" class="headerlink" title="NEB的计算"></a>NEB的计算</h4><p>1.准备结构优化后的NEB初始状态和结束状态，并将两个文件夹改名为“start”，“end”。</p>
+<p>2.在平行于begin文件夹的目录下输入：</p>
+<p><code>nebmake.pl begin/CONTCAR  end/CONTCAR  5</code></p>
+<p>这行命令的意思是：利用nebmake脚本，以begin文件夹下的CONTCAR为初始结构，end文件夹下的CONTCAR为末态结构，在这个过度态过程中插入5个点。 nebmake的脚本需要自行下载编译。</p>
+<p>3.将begin或end文件夹下的OUTCAR复制到00和06中，KPOINTS和POTCATR复制到00-06中。INCAR需要加入四个VASP相关的计算参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IBRION 改为<span class="number">3</span></span><br><span class="line"></span><br><span class="line">LCLIMB = .TRUE.</span><br><span class="line">IMAGES = <span class="number">5</span></span><br><span class="line">SPRING = <span class="number">-5.0</span></span><br><span class="line">ICHAIN = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>4.提交任务</p>
+<p><code>sbatch -N 5 vasp_neb.slurm</code></p>
+<p>5.结果处理脚本:</p>
+<p><code>nebresultsrev.pl</code></p>
+<h4 id="化合物的表面建立过程"><a href="#化合物的表面建立过程" class="headerlink" title="化合物的表面建立过程"></a>化合物的表面建立过程</h4><p>1.找出某一晶体方向的所有表面</p>
+<p>2.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymatgen.core.surface <span class="keyword">import</span> Slab, SlabGenerator, generate_all_slabs, Structure, Lattice, ReconstructionGenerator, get_symmetrically_distinct_miller_indices</span><br><span class="line"><span class="keyword">from</span> pymatgen.core.structure <span class="keyword">import</span> Structure</span><br><span class="line"><span class="keyword">from</span> pymatgen.analysis.adsorption <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pymatgen.ext.matproj <span class="keyword">import</span> MPRester</span><br><span class="line"><span class="keyword">from</span> pymatgen.symmetry.analyzer <span class="keyword">import</span> SpacegroupAnalyzer</span><br><span class="line"><span class="keyword">from</span> pymatgen.io.vasp.inputs <span class="keyword">import</span> Poscar</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">mpr = MPRester(<span class="string">'Bw7HdCARiXvzEWJK'</span>)</span><br><span class="line">path = <span class="string">'/Users/wangyaowei/Desktop/codes'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># struct = Structure.from_file("Mg.vasp")</span></span><br><span class="line">struct = mpr.get_structure_by_material_id(<span class="string">'mp-1124'</span>)</span><br><span class="line">struct = SpacegroupAnalyzer(struct).get_conventional_standard_structure()</span><br><span class="line"></span><br><span class="line">formula = struct.composition.reduced_formula</span><br><span class="line">print(formula)</span><br><span class="line">print(<span class="string">"输入的结构是:&#123;&#125;"</span>.format(formula))</span><br><span class="line"></span><br><span class="line">os.mkdir(formula)</span><br><span class="line">os.chdir(formula)</span><br><span class="line">ls = get_symmetrically_distinct_miller_indices(struct, <span class="number">1</span>, return_hkil=<span class="literal">False</span>)</span><br><span class="line">print(ls)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ls:</span><br><span class="line">    slab = SlabGenerator(struct, miller_index=i, min_slab_size=<span class="number">25</span>,min_vacuum_size=<span class="number">15.0</span>, lll_reduce=<span class="literal">True</span>, center_slab=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> n, slabs <span class="keyword">in</span> enumerate(slab.get_slabs(bonds=<span class="literal">None</span>, ftol=<span class="number">0.1</span>, tol=<span class="number">0.1</span>, max_broken_bonds=<span class="number">0</span>, repair=<span class="literal">False</span>, symmetrize=<span class="literal">True</span>)):</span><br><span class="line">        slabs.make_supercell([[<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">        name = str(i).split(<span class="string">','</span>)[<span class="number">0</span>][<span class="number">1</span>]+str(i).split(<span class="string">','</span>)[<span class="number">1</span>][<span class="number">1</span>]+str(i).split(<span class="string">','</span>)[<span class="number">2</span>][<span class="number">1</span>]</span><br><span class="line">        open(formula+<span class="string">'_'</span>+name +<span class="string">'_'</span> + str(n+<span class="number">1</span>) + <span class="string">'.vasp'</span>, <span class="string">'w'</span>).write(str(Poscar(slabs)))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymatgen.io.vasp <span class="keyword">import</span> Locpot</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">locpot = Locpot.from_file(<span class="string">"LOCPOT"</span>) </span><br><span class="line"></span><br><span class="line">z_locpot = locpot.get_average_along_axis(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fermi_level =  <span class="number">1.7968</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> * <span class="comment">#控制刻度线</span></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> cm</span><br><span class="line"><span class="keyword">from</span> matplotlib.collections <span class="keyword">import</span> LineCollection</span><br><span class="line">cm = plt.cm.get_cmap(<span class="string">'viridis'</span>)</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">11.3</span>,<span class="number">6</span>))<span class="comment">#图片大小设置</span></span><br><span class="line"><span class="comment"># plt.ylim(-2.54+2.534,-2.44+2.534)</span></span><br><span class="line">label_font = &#123;<span class="string">'family'</span>:<span class="string">'Arial'</span>,<span class="string">'weight'</span>:<span class="string">'normal'</span>,<span class="string">'size'</span>:<span class="number">22</span>&#125;<span class="comment">#设置标签和图例字体</span></span><br><span class="line">legend_font = &#123;<span class="string">'family'</span>:<span class="string">'Arial'</span>,<span class="string">'weight'</span>:<span class="string">'normal'</span>,<span class="string">'size'</span>:<span class="number">12</span>&#125;</span><br><span class="line">plt.ylabel(<span class="string">'Electrostatic potential'</span>,label_font)</span><br><span class="line">plt.xlabel(<span class="string">'Distance along Z direction'</span>,label_font)</span><br><span class="line">plt.yticks(fontproperties = <span class="string">'Arial'</span>, size = <span class="number">24</span>)</span><br><span class="line">plt.xticks(fontproperties = <span class="string">'Arial'</span>, size = <span class="number">24</span>)</span><br><span class="line"><span class="comment"># plt.xticks(np.arange(1, 5.1, 1))#横坐标范围及间隔</span></span><br><span class="line">matplotlib.rcParams[<span class="string">'patch.linewidth'</span>] = <span class="number">1.5</span><span class="comment">#图例边框线宽度</span></span><br><span class="line">plt.rcParams[<span class="string">'xtick.direction'</span>] = <span class="string">'in'</span><span class="comment">#将x周的刻度线方向设置向内</span></span><br><span class="line">plt.rcParams[<span class="string">'ytick.direction'</span>] = <span class="string">'in'</span><span class="comment">#将y轴的刻度方向设置向内</span></span><br><span class="line">plt.tick_params(which=<span class="string">'major'</span>,width=<span class="number">2</span>,length=<span class="number">6</span>)<span class="comment">#设置刻度线宽度</span></span><br><span class="line">bwith = <span class="number">2</span><span class="comment">#加粗图四周边框</span></span><br><span class="line">ax=plt.gca()</span><br><span class="line">ax.spines[<span class="string">'bottom'</span>].set_linewidth(bwith)    </span><br><span class="line">ax.spines[<span class="string">'top'</span>].set_linewidth(bwith)</span><br><span class="line">ax.spines[<span class="string">'left'</span>].set_linewidth(bwith)  </span><br><span class="line">ax.spines[<span class="string">'right'</span>].set_linewidth(bwith) </span><br><span class="line"></span><br><span class="line">plt.plot(z_locpot, lw = <span class="number">3</span>)</span><br><span class="line">ax.axvline(<span class="number">300</span>,color=<span class="string">'red'</span>,ls=<span class="string">'dashed'</span>)</span><br><span class="line">ax.axvline(<span class="number">352</span>,color=<span class="string">'red'</span>,ls=<span class="string">'dashed'</span>)</span><br><span class="line"></span><br><span class="line">vac = np.average(z_locpot[<span class="number">300</span>:<span class="number">352</span>])</span><br><span class="line"></span><br><span class="line">plt.savefig(<span class="string">'plotential.tif'</span>,dpi=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">print(vac)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Al(001)表面的功函数为：&#123;&#125;"</span>.format(round(vac-fermi_level,<span class="number">3</span>)))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/20/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -937,95 +1127,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/31/LDA-U/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/31/LDA-U/" class="post-title-link" itemprop="url">LDA+U</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-31 12:00:09 / 修改时间：12:08:35" itemprop="dateCreated datePublished" datetime="2020-08-31T12:00:09+08:00">2020-08-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VASP/" itemprop="url" rel="index"><span itemprop="name">VASP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>加U体系</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/31/LDA-U/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1098,7 +1199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1150,12 +1251,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">89k</span>
+    <span title="站点总字数">96k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:21</span>
+    <span title="站点阅读时长">1:27</span>
 </div>
 
         
