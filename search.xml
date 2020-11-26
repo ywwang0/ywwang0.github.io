@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python编程从入门到实践</title>
+    <url>/2020/11/26/Python%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p>书籍笔记</p>
+<a id="more"></a>
+
+<h1 id="第二章：变量和简单数据类型"><a href="#第二章：变量和简单数据类型" class="headerlink" title="第二章：变量和简单数据类型"></a>第二章：变量和简单数据类型</h1><ul>
+<li><p>变量能以字母和下划线开头，但<strong>不能以数字开头</strong>。</p>
+</li>
+<li><p>大写字符串首字母用.title()</p>
+</li>
+</ul>
+<blockquote>
+<p>笔记中”&gt;&gt;&gt;”代表程序输出，以后不再赘述</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'yaowei wang'</span></span><br><span class="line">name.title()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Yaowei Wang'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串中写入变量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'yaowei wang'</span></span><br><span class="line">print(<span class="string">f'Hello, <span class="subst">&#123;name.title()&#125;</span>'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Hello, Yaowei Wang</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>去除字符串开头或者结尾的空白</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">favorite_language = <span class="string">' python '</span></span><br><span class="line">favorite_language.strip()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'python'</span></span><br><span class="line">favorite_language.lstrip()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'python '</span></span><br><span class="line">favorite_language.rstrip()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">' python'</span></span><br><span class="line">favorite_language</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">' python '</span> <span class="comment">#此操作不会改变原始字符串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>同时给多个变量赋值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a,b,c = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="第三章：列表"><a href="#第三章：列表" class="headerlink" title="第三章：列表"></a>第三章：列表</h1><ul>
+<li>列表中的索引从0开始</li>
+</ul>
+<h2 id="修改，添加，删除列表中的元素"><a href="#修改，添加，删除列表中的元素" class="headerlink" title="修改，添加，删除列表中的元素"></a>修改，添加，删除列表中的元素</h2><h3 id="修改列表元素"><a href="#修改列表元素" class="headerlink" title="修改列表元素"></a>修改列表元素</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">motor = [<span class="string">'honda'</span>,<span class="string">'yamaha'</span>,<span class="string">'suzuki'</span>]</span><br><span class="line">motor[<span class="number">0</span>] = <span class="string">'wulinghongguang'</span></span><br><span class="line">motor</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'wulinghongguang'</span>, <span class="string">'yamaha'</span>, <span class="string">'suzuki'</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><ul>
+<li>append在列表最结尾添加元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">motor = [<span class="string">'honda'</span>,<span class="string">'yamaha'</span>,<span class="string">'suzuki'</span>]</span><br><span class="line">motor.insert(<span class="number">0</span>,<span class="string">'wuling'</span>) <span class="comment">#必须添加插入的位置</span></span><br><span class="line">motor</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除列表中的元素"><a href="#删除列表中的元素" class="headerlink" title="删除列表中的元素"></a>删除列表中的元素</h3><ul>
+<li>del语句</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">motor = [<span class="string">'honda'</span>,<span class="string">'yamaha'</span>,<span class="string">'suzuki'</span>]</span><br><span class="line"><span class="keyword">del</span> motor[<span class="number">0</span>:<span class="number">2</span>] <span class="comment">#切片和索引删除都可以</span></span><br><span class="line">motor </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'suzuki'</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>.pop()弹出</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">motor = [<span class="string">'honda'</span>,<span class="string">'yamaha'</span>,<span class="string">'suzuki'</span>]</span><br><span class="line"><span class="keyword">while</span> motor:</span><br><span class="line">    print(motor.pop())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>suzuki</span><br><span class="line">yamaha</span><br><span class="line">honda</span><br><span class="line">---------------</span><br><span class="line">motor = [<span class="string">'honda'</span>,<span class="string">'yamaha'</span>,<span class="string">'suzuki'</span>]</span><br><span class="line">a = motor.pop(<span class="number">1</span>) <span class="comment">#弹出特定位置的元素</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>yamaha</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>.remove()根据元素的值删除</li>
+</ul>
+<h2 id="组织列表"><a href="#组织列表" class="headerlink" title="组织列表"></a>组织列表</h2><ul>
+<li>.sort()永久排序，sorted临时排序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">alpha = [<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>]</span><br><span class="line">sorted(alpha)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line">alpha</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>]</span><br><span class="line">alpha.sort() <span class="comment">#永久变了</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>.reverse()永久反转列表</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Jupyter notebook</title>
     <url>/2020/11/24/Jupyter-notebook/</url>
     <content><![CDATA[<p>jupyter lab及python3安装方法</p>
