@@ -3,7 +3,10 @@
   <entry>
     <title>Jupyter notebook</title>
     <url>/2020/11/24/Jupyter-notebook/</url>
-    <content><![CDATA[<h3 id="Jupyter-notebook和Jupyter-lab"><a href="#Jupyter-notebook和Jupyter-lab" class="headerlink" title="Jupyter notebook和Jupyter lab"></a>Jupyter notebook和Jupyter lab</h3><p>Jupyter Notebook 是一个款以网页为基础的交互计算环境，可以创建Jupyter的文档，支持多种语言，包括Python, Julia, R等等。广泛用于数据分析，数据可视化和其他的交互和探索性计算中。</p>
+    <content><![CDATA[<p>jupyter lab及python3安装方法</p>
+<a id="more"></a>
+
+<h3 id="Jupyter-notebook和Jupyter-lab"><a href="#Jupyter-notebook和Jupyter-lab" class="headerlink" title="Jupyter notebook和Jupyter lab"></a>Jupyter notebook和Jupyter lab</h3><p>Jupyter Notebook 是一个款以网页为基础的交互计算环境，可以创建Jupyter的文档，支持多种语言，包括Python, Julia, R等等。广泛用于数据分析，数据可视化和其他的交互和探索性计算中。</p>
 <p>JupyterLab 是<strong>包括了Notebook</strong>的<strong>下一代</strong>用户界面。有模块化的界面，可以在同一个窗口同时打开好几个notebook或文件（HTML, TXT, Markdown等等），都以标签的形式展示，于是就更像是一个IDE。</p>
 <p>本次在Surface Pro7(Win10系统下)安装Jupyter lab。</p>
 <h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><h4 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h4><p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">进入官方网站下载python安装包</a></p>
@@ -25,6 +28,9 @@
 <p><code>jupyterlab-spreadsheet</code>查看excel</p>
 <p><code>jupyterlab-kite</code>代码不全神器</p>
 ]]></content>
+      <categories>
+        <category>从头搭建code环境</category>
+      </categories>
   </entry>
   <entry>
     <title>python绘制元素周期表</title>

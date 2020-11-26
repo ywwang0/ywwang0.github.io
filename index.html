@@ -180,9 +180,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-24 20:45:53 / 修改时间：21:58:49" itemprop="dateCreated datePublished" datetime="2020-11-24T20:45:53+08:00">2020-11-24</time>
+              <time title="创建时间：2020-11-24 20:45:53" itemprop="dateCreated datePublished" datetime="2020-11-24T20:45:53+08:00">2020-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 22:40:06" itemprop="dateModified" datetime="2020-11-26T22:40:06+08:00">2020-11-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%8E%E5%A4%B4%E6%90%AD%E5%BB%BAcode%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">从头搭建code环境</span></a>
+                </span>
             </span>
 
           <br>
@@ -191,7 +206,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>943</span>
+              <span>965</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -210,28 +225,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Jupyter-notebook和Jupyter-lab"><a href="#Jupyter-notebook和Jupyter-lab" class="headerlink" title="Jupyter notebook和Jupyter lab"></a>Jupyter notebook和Jupyter lab</h3><p>Jupyter Notebook 是一个款以网页为基础的交互计算环境，可以创建Jupyter的文档，支持多种语言，包括Python, Julia, R等等。广泛用于数据分析，数据可视化和其他的交互和探索性计算中。</p>
-<p>JupyterLab 是<strong>包括了Notebook</strong>的<strong>下一代</strong>用户界面。有模块化的界面，可以在同一个窗口同时打开好几个notebook或文件（HTML, TXT, Markdown等等），都以标签的形式展示，于是就更像是一个IDE。</p>
-<p>本次在Surface Pro7(Win10系统下)安装Jupyter lab。</p>
-<h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><h4 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h4><p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">进入官方网站下载python安装包</a></p>
-<p>下载好64bit 3.9.0安装包，安装过程点击<code>Add Python to PATH</code></p>
-<h4 id="CMD键入安装命令"><a href="#CMD键入安装命令" class="headerlink" title="CMD键入安装命令"></a>CMD键入安装命令</h4><p>用cmd打开windows系统下命令提示符，输入<code>python --version</code>即可查看python的版本，输入<code>pip --version</code>即可查看pip的版本（pip以后安装python的包会用到）</p>
-<p>在cmd中输入：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterlab</span><br></pre></td></tr></table></figure>
-
-<p>完成对jupyter lab的安装，安装后在cmd窗口中通过<code>jupyter lab</code>打开</p>
-<h4 id="设置Jupyterlab保存目录和端口"><a href="#设置Jupyterlab保存目录和端口" class="headerlink" title="设置Jupyterlab保存目录和端口"></a>设置Jupyterlab保存目录和端口</h4><p>CMD 中输入 <code>jupyter lab --generate-config</code>，写默认配置文件。如果之前安装过jupyter的会提示是否覆盖之前的文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认打开和文件保存路径</span></span><br><span class="line">c.NotebookApp.notebook_dir = <span class="string">'C:\jupyter'</span></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line">c.NotebookApp.port = 8889</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装Jupyter插件"><a href="#安装Jupyter插件" class="headerlink" title="安装Jupyter插件"></a>安装Jupyter插件</h3><h4 id="开启拓展功能"><a href="#开启拓展功能" class="headerlink" title="开启拓展功能"></a>开启拓展功能</h4><p>Settings-Advanced Setting Editor-Extension Manager。将左边”enabled”:false粘贴到右边的花括号里。</p>
-<img src="/2020/11/24/Jupyter-notebook/tuozhan.png" style="zoom:50%;">
-
-<h4 id="常见的好用插件介绍"><a href="#常见的好用插件介绍" class="headerlink" title="常见的好用插件介绍"></a>常见的好用插件介绍</h4><p><code>debugger</code>debug神器</p>
-<p><code>jupyter-matplotlib</code>，绘图前加入魔法命令<code>%matplotlib widget</code>即可交互拖拽式画图</p>
-<p><code>jupyterlab-drawio</code>，在Jupyter里面画思维导图</p>
-<p><code>jupyterlab-spreadsheet</code>查看excel</p>
-<p><code>jupyterlab-kite</code>代码不全神器</p>
-
+          <p>jupyter lab及python3安装方法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/24/Jupyter-notebook/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1122,7 +1124,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
