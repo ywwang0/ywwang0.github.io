@@ -6,7 +6,7 @@
     <content><![CDATA[<p>书籍笔记</p>
 <a id="more"></a>
 
-<h1 id="第二章：变量和简单数据类型"><a href="#第二章：变量和简单数据类型" class="headerlink" title="第二章：变量和简单数据类型"></a>第二章：变量和简单数据类型</h1><ul>
+<h1 id="第一章：积累"><a href="#第一章：积累" class="headerlink" title="第一章：积累"></a>第一章：积累</h1><h1 id="第二章：变量和简单数据类型"><a href="#第二章：变量和简单数据类型" class="headerlink" title="第二章：变量和简单数据类型"></a>第二章：变量和简单数据类型</h1><ul>
 <li><p>变量能以字母和下划线开头，但<strong>不能以数字开头</strong>。</p>
 </li>
 <li><p>大写字符串首字母用.title()</p>
@@ -61,9 +61,56 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">alpha = [<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>]</span><br><span class="line">sorted(alpha)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line">alpha</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>]</span><br><span class="line">alpha.sort() <span class="comment">#永久变了</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>.reverse()永久反转列表</li>
+<li><p>.reverse()永久反转列表</p>
+</li>
+<li><p>list(range(1,5)) #左闭右开区间，数字列表</p>
+</li>
 </ul>
-]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num = list(range(<span class="number">1</span>,<span class="number">9</span>,<span class="number">2</span>))</span><br><span class="line">sum(num)</span><br><span class="line">min(num)</span><br><span class="line">max(num)</span><br><span class="line">squares = [values**<span class="number">2</span> <span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列表复制</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_food = [<span class="string">'carote'</span>,<span class="string">'tomato'</span>,<span class="string">'humberger'</span>]</span><br><span class="line">friend_food = my_food[:] <span class="comment">#复制成一个新的列表，不会改变原列表的值</span></span><br><span class="line">my_food.append(<span class="string">'apple'</span>)</span><br><span class="line">friend_food.append(<span class="string">'banana'</span>)</span><br><span class="line">my_food</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'carote'</span>, <span class="string">'tomato'</span>, <span class="string">'humberger'</span>, <span class="string">'apple'</span>]</span><br><span class="line">friend_food</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'carote'</span>, <span class="string">'tomato'</span>, <span class="string">'humberger'</span>, <span class="string">'banana'</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元祖中的元素不可以更改</li>
+</ul>
+<h1 id="第五章：if语句"><a href="#第五章：if语句" class="headerlink" title="第五章：if语句"></a>第五章：if语句</h1><ul>
+<li>.upper()将字符串所有的字母都大写 .lower()所有小写</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">12</span></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">  price = <span class="number">0</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">18</span>:</span><br><span class="line">  price = <span class="number">25</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  price = <span class="number">40</span></span><br><span class="line">print(<span class="string">f'Your ad,ission cost is <span class="subst">&#123;price&#125;</span>'</span>)</span><br><span class="line"><span class="comment"># 如果有一个条件符合，就跳过其他条件</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="第六章：字典"><a href="#第六章：字典" class="headerlink" title="第六章：字典"></a>第六章：字典</h1><p>{}中的键值对</p>
+<ul>
+<li>添加//修改/删除键值对</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">alien = &#123;<span class="string">'color'</span>:<span class="string">'green'</span>, <span class="string">'points'</span>:<span class="number">5</span>&#125;</span><br><span class="line">alien[<span class="string">'x_position'</span>] = <span class="number">3.0</span></span><br><span class="line">alien</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>&#123;<span class="string">'color'</span>: <span class="string">'green'</span>, <span class="string">'points'</span>: <span class="number">5</span>, <span class="string">'x_position'</span>: <span class="number">3.0</span>&#125;</span><br><span class="line">alien[<span class="string">'points'</span>] = <span class="number">4</span></span><br><span class="line">alien</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>&#123;<span class="string">'color'</span>: <span class="string">'green'</span>, <span class="string">'points'</span>: <span class="number">4</span>, <span class="string">'x_position'</span>: <span class="number">3.0</span>&#125;</span><br><span class="line"><span class="keyword">del</span> alien[<span class="string">'points'</span>]</span><br><span class="line">alien</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>&#123;<span class="string">'color'</span>: <span class="string">'green'</span>, <span class="string">'x_position'</span>: <span class="number">3.0</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>访问字典中的值 .get()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">alien.get(<span class="string">'color'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'green'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>分别打印键值对/键/值  alien.items()/ alien.keys()/ alien.values()</p>
+</li>
+<li><p>set(列表名)，用来去除重复元素</p>
+</li>
+</ul>
+<h1 id="第七章：用户输入和while循环"><a href="#第七章：用户输入和while循环" class="headerlink" title="第七章：用户输入和while循环"></a>第七章：用户输入和while循环</h1><ul>
+<li><p>age = input(‘How old are you?’)</p>
+</li>
+<li><p>int(age)，将字符型的变量改成数字类型</p>
+</li>
+<li><p>如果后面的条件满足while，循环就会一直进行下去</p>
+</li>
+<li><p>break永久退出循环，continue退出当前循环</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    city = input(<span class="string">'Please input city name:'</span>)</span><br><span class="line">    <span class="keyword">if</span> city == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">f'I would like to go <span class="subst">&#123;city&#125;</span>'</span>)</span><br><span class="line">        </span><br><span class="line">current_number = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> current_number &lt;= <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">if</span> current_number % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(current_number)</span><br><span class="line">    current_number += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="第八章：函数"><a href="#第八章：函数" class="headerlink" title="第八章：函数"></a>第八章：函数</h1><h1 id="第九章：类"><a href="#第九章：类" class="headerlink" title="第九章：类"></a>第九章：类</h1>]]></content>
       <categories>
         <category>Python学习</category>
       </categories>
