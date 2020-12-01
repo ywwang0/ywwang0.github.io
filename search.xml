@@ -1403,7 +1403,7 @@ MS切表面-->计算低指数表面的表面能
 <p>终端中输入以上命令一路回车就好</p>
 <h3 id="将本地公匙增加到集群中"><a href="#将本地公匙增加到集群中" class="headerlink" title="将本地公匙增加到集群中"></a>将本地公匙增加到集群中</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line">拷贝内容到集群~/.ssh/authorized_keys中（自已不要覆盖其他人的信息）</span><br></pre></td></tr></table></figure>
 
-<h3 id="利用alias命令简化登陆"><a href="#利用alias命令简化登陆" class="headerlink" title="利用alias命令简化登陆"></a>利用alias命令简化登陆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="built_in">alias</span> = <span class="built_in">alias</span> tji=<span class="string">'ssh -p 3391 um008@202.121.180.10'</span></span><br></pre></td></tr></table></figure>
+<h3 id="利用alias命令简化登陆"><a href="#利用alias命令简化登陆" class="headerlink" title="利用alias命令简化登陆"></a>利用alias命令简化登陆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="built_in">alias</span> tji=<span class="string">'ssh -p 3391 um008@202.121.180.10'</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
