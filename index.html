@@ -157,6 +157,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/02/python%E4%B8%ADif-name-main-%E4%BD%9C%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/photo.jpeg">
+      <meta itemprop="name" content="Yaowei Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算材料学">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/02/python%E4%B8%ADif-name-main-%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">python中if __name__ == '__main__'作用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-02 19:59:12 / 修改时间：20:18:27" itemprop="dateCreated datePublished" datetime="2021-06-02T19:59:12+08:00">2021-06-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">Python语法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'ok'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    func()</span><br></pre></td></tr></table></figure>
+
+<p>这种形式的代码，相信你已经见过很多，在脚本的末尾，出现一个if条件判断，这个if条件判断的作用是什么呢，<code>__name__</code>事先并没有定义，为什么可以直接使用呢，它从哪里来？ 回答这些问题，必须先了解<strong>模块属性</strong></p>
+<h3 id="1-模块属性"><a href="#1-模块属性" class="headerlink" title="1.模块属性"></a>1.<strong>模块属性</strong></h3><p>一个python脚本（以.py 结尾的文件）就是一个模块，模块自身有若干属性，其中比较常用的是如下两个</p>
+<ol>
+<li><code>__name__</code> 模块的名称</li>
+<li><code>__file__</code> 脚本的完整文件路径</li>
+</ol>
+<p>在任意一个python脚本里，你都可以输出这两个属性（注意Jupyter notebook等交互式IDE可能会报__file__错，直接在终端或vscode运行就好了）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(__name__)</span><br><span class="line">print(__file__)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/Users/wangyaowei/Desktop/test.py</span><br><span class="line">__main__</span><br></pre></td></tr></table></figure>
+
+<p><code>__name__</code>的值是<code>__main__</code> ，这表示模块的名称是<code>__main__</code><br><code>__file__</code>是文件的完整路径</p>
+<p>虽然弄清楚了<code>__name__</code>是怎么一回事，但也带来了新的疑问，明明<code>__name__</code>就等于<code>__main__</code>，为何还要做if条件判断呢？显然是存在<code>__name__</code>不等于<code>__main__</code>的情况。</p>
+<h3 id="2-直接执行与其他模块引入"><a href="#2-直接执行与其他模块引入" class="headerlink" title="2.直接执行与其他模块引入"></a>2.<strong>直接执行与其他模块引入</strong></h3><p>简单的功能，我们可以在一个python脚本里完成，但复杂的功能，我们会写多个python 脚本，比如下面的例子里，有两个脚本，一个是main.py ，做为整个程序的启动脚本，utils.py 提供一些辅助函数，供main.py使用</p>
+<p>(1) utils.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">safe_division</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> a/b</span><br><span class="line"></span><br><span class="line">print(<span class="string">"utils 模块里的__name__ 值为："</span>, __name__)</span><br></pre></td></tr></table></figure>
+
+<p>(2) main.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> safe_division</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    value = input(<span class="string">"输入两个整数，中间用空格分开:"</span>)</span><br><span class="line">    arrs = value.split()</span><br><span class="line">    a = int(arrs[<span class="number">0</span>])</span><br><span class="line">    b = int(arrs[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    result = safe_division(a, b)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    func()</span><br></pre></td></tr></table></figure>
+
+<p>接下来，通过两步实验，来理解<code>__name__</code>在不同场景下的取值情况。</p>
+<p>第一步，先来执行utils.py文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python utils.py</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>utils 模块里的__name__ 值为： __main__</span><br></pre></td></tr></table></figure>
+
+<p>第二步，执行main.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br><span class="line">&gt;&gt;&gt;utils 模块里的__name__ 值为： utils</span><br><span class="line">&gt;&gt;&gt;输入两个整数，中间用空格分开:<span class="number">5</span> <span class="number">2</span></span><br><span class="line">&gt;&gt;&gt;<span class="number">2.5</span></span><br></pre></td></tr></table></figure>
+
+<p>这里有一个现象，你必须理解其背后的原因，我们明明执行的main.py脚本，但是utils.py脚本里的代码也被执行了，这是因为在main.py脚本里引入了utils.py 这个模块，被引入的脚本里的代码会在引入时执行。</p>
+<p>当utils.py 被其他脚本引入时，它的<code>__name__</code>就不等于<code>__main__</code>， 而是等于utils,恰好是文件名称去掉.py 剩余的部分。</p>
+<p>经过上面的实验，我们可以得出两个结论</p>
+<ol>
+<li>当脚本被直接执行时，模块属性<code>__name__</code>等于<code>__main__</code></li>
+<li>当脚本被其他模块引入时，模块属性<code>__name__</code>等于脚本名称去掉.py 后剩余的部分</li>
+</ol>
+<h3 id="3-终极目的—测试模块里函数"><a href="#3-终极目的—测试模块里函数" class="headerlink" title="3.终极目的—测试模块里函数"></a>3.<strong>终极目的—测试模块里函数</strong></h3><p>由于一个脚本被引入时，自身的代码会被执行，因此我们在每个脚本里都写上一段<code>if __name__ == &#39;__main__&#39;</code>如果你希望一些代码只有在脚本被直接执行时才执行，那么就把这些代码放入到if 语句块中，最常见的情形就是测试代码,下面我对utils.py 进行修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">safe_division</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a/b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(safe_division(<span class="number">10</span>, <span class="number">5</span>) == <span class="number">2</span>)</span><br><span class="line">    print(safe_division(<span class="number">10</span>, <span class="number">0</span>) == <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p>我们写完一个函数后，不免要写一些测试的代码，而这些测试的代码我们不希望他们在utils.py被引入时执行，只有当我们主动执行utils.py 进行测试才执行这些测试代码</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/Python%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -969,89 +1091,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E5%9B%A0%E7%B4%A0%E5%85%B3%E8%81%94%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/photo.jpeg">
-      <meta itemprop="name" content="Yaowei Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算材料学">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/15/%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E5%9B%A0%E7%B4%A0%E5%85%B3%E8%81%94%E6%80%A7/" class="post-title-link" itemprop="url">分类分析因素关联性</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-15 10:48:44 / 修改时间：16:34:08" itemprop="dateCreated datePublished" datetime="2020-09-15T10:48:44+08:00">2020-09-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">常用脚本</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">文件用pandas读入命名为df</span></span><br><span class="line"><span class="string">colume是待分类的一列</span></span><br><span class="line"><span class="string">label是待分类的列表，如我想分析data.csv文件夹下，的ads_ele下的x和Mg不同情况下的时候吸附能与一些变量的关系</span></span><br><span class="line"><span class="string">y是想分析的因变量，如吸附能</span></span><br><span class="line"><span class="string">x是想分析的自变量</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify_scatter</span><span class="params">(filename,column,y_goal,x_goal,labels)</span>:</span></span><br><span class="line">    plt.figure(figsize=(<span class="number">8.3</span>,<span class="number">6</span>)) </span><br><span class="line">    label_font = &#123;<span class="string">'family'</span>:<span class="string">'Arial'</span>,<span class="string">'weight'</span>:<span class="string">'normal'</span>,<span class="string">'size'</span>:<span class="number">26</span>&#125;</span><br><span class="line">    legend_font = &#123;<span class="string">'family'</span>:<span class="string">'Arial'</span>,<span class="string">'weight'</span>:<span class="string">'normal'</span>,<span class="string">'size'</span>:<span class="number">15</span>&#125;</span><br><span class="line">    plt.rcParams[<span class="string">'xtick.direction'</span>] = <span class="string">'in'</span><span class="comment">#将x周的刻度线方向设置向内</span></span><br><span class="line">    plt.rcParams[<span class="string">'ytick.direction'</span>] = <span class="string">'in'</span><span class="comment">#将y轴的刻度方向设置向内</span></span><br><span class="line">    plt.yticks(fontproperties = <span class="string">'Arial'</span>, size = <span class="number">24</span>)</span><br><span class="line">    plt.xticks(fontproperties = <span class="string">'Arial'</span>, size = <span class="number">20</span>)</span><br><span class="line">    plt.ylabel(y_goal,label_font)</span><br><span class="line">    plt.xlabel(x_goal,label_font)</span><br><span class="line">    minorticks_on()</span><br><span class="line">    tick_params(which=<span class="string">'major'</span>,width=<span class="number">2</span>,length=<span class="number">6</span>)</span><br><span class="line">    tick_params(which=<span class="string">'minor'</span>,width=<span class="number">2</span>,length=<span class="number">4</span>)</span><br><span class="line">    bwith = <span class="number">2</span></span><br><span class="line">    ax=plt.gca()</span><br><span class="line">    ax.spines[<span class="string">'bottom'</span>].set_linewidth(bwith)    </span><br><span class="line">    ax.spines[<span class="string">'top'</span>].set_linewidth(bwith)</span><br><span class="line">    ax.spines[<span class="string">'left'</span>].set_linewidth(bwith)  </span><br><span class="line">    ax.spines[<span class="string">'right'</span>].set_linewidth(bwith)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> label <span class="keyword">in</span> labels:</span><br><span class="line">        df = pd.read_excel(filename)</span><br><span class="line">        df = df[df[column] == str(label)]</span><br><span class="line">        y = np.array(df[y_goal]).reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">        x = np.array(df[x_goal]).reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        linear = linear_model.LinearRegression()</span><br><span class="line">        linear.fit(x, y)</span><br><span class="line"></span><br><span class="line">        y_true = y</span><br><span class="line">        y_pred = linear.predict(x)</span><br><span class="line">        plt.scatter(x, y,label=label+<span class="string">':$R^2$='</span>+str(round(r2_score(y_true,y_pred),<span class="number">3</span>)),s=<span class="number">160</span>,edgecolor=<span class="string">'black'</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">        x_aixs = np.linspace(np.min(x)<span class="number">-0.1</span>*(np.max(x)-np.min(x)),<span class="number">1.1</span>*np.max(x)+<span class="number">0.3</span>*(np.max(x)-np.min(x)),<span class="number">10</span>, endpoint=<span class="literal">True</span>).reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">        plt.plot(x_aixs, linear.predict(x_aixs), ls=<span class="string">'dashed'</span>)</span><br><span class="line">        plt.legend(loc=<span class="string">'best'</span>,prop =&#123;<span class="string">'family'</span>:<span class="string">'Arial'</span>,<span class="string">'weight'</span>:<span class="string">'normal'</span>,<span class="string">'size'</span>:<span class="number">14</span>&#125;,fancybox=<span class="literal">False</span>,edgecolor=<span class="string">'black'</span>)</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.savefig(y_goal+<span class="string">' VS. '</span>+x_goal+<span class="string">' sorted by '</span>+column+<span class="string">'.pdf'</span>,dpi=<span class="number">300</span>)</span><br><span class="line">        print(label+<span class="string">'的R2:&#123;&#125;'</span>.format(r2_score(y_true,y_pred)))</span><br><span class="line"></span><br><span class="line">filename = <span class="string">'raw.xlsx'</span></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> [<span class="string">'Spacegroup'</span>,<span class="string">'type'</span>,<span class="string">'ads_ele'</span>]:</span><br><span class="line">    column = c</span><br><span class="line">    df = pd.read_excel(filename)</span><br><span class="line"><span class="comment"># 将这一列的所有行分离出来,并删除数据小于5的点</span></span><br><span class="line">    temp = df[column].value_counts()</span><br><span class="line">    labels = temp[temp&gt;<span class="number">4</span>].index.tolist()</span><br><span class="line"><span class="comment"># 目标变量和自变量</span></span><br><span class="line">    y_analysis = <span class="string">'Ads_En'</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="string">'Bader'</span>,<span class="string">'Workfunction'</span>,  <span class="string">'D -0'</span>]:</span><br><span class="line">        x_analysis = i</span><br><span class="line">        classify_scatter(filename,column,y_analysis,x_analysis,labels)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1124,14 +1163,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1176,12 +1215,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">115k</span>
+    <span title="站点总字数">117k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:45</span>
+    <span title="站点阅读时长">1:46</span>
 </div>
 
         
